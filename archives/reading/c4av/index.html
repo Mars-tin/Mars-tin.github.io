@@ -35,12 +35,37 @@
 
 <body>
     <div id="doc" class="markdown-body container-fluid comment-inner comment-enabled" data-hard-breaks="true"><h1 id="Commands-for-Autonomous-Vehicles" data-id="Commands-for-Autonomous-Vehicles"><a class="anchor hidden-xs" href="#Commands-for-Autonomous-Vehicles" title="Commands-for-Autonomous-Vehicles"><span class="octicon octicon-link"></span></a><span>Commands for Autonomous Vehicles</span></h1><h2 id="Resources" data-id="Resources"><a class="anchor hidden-xs" href="#Resources" title="Resources"><span class="octicon octicon-link"></span></a><span>Resources</span></h2><h3 id="Workshops-and-Challenges" data-id="Workshops-and-Challenges"><a class="anchor hidden-xs" href="#Workshops-and-Challenges" title="Workshops-and-Challenges"><span class="octicon octicon-link"></span></a><span>Workshops and Challenges</span></h3><ul>
-<li><strong><span>The Commands for Autonomous Vehicles (C4AV) Workshop</span></strong><br>
+<li>
+<p><strong><span>The Commands for Autonomous Vehicles (C4AV) Workshop</span></strong><br>
 <span>ECCV 2020.</span><br>
-<a href="https://c4av-2020.github.io/index.html" target="_blank" rel="noopener"><span>[Website]</span></a><span> [</span><a href="https://www.aicrowd.com/challenges/eccv-2020-commands-4-autonomous-vehicles" target="_blank" rel="noopener"><span>Challenge]</span></a><span> [</span><a href="https://www.youtube.com/watch?v=G6fRK3xoAYk" target="_blank" rel="noopener"><span>Trailer]</span></a></li>
-<li><strong><span>Reasoning for Complex QA (RCQA) Workshop</span></strong><br>
+<a href="https://c4av-2020.github.io/index.html" target="_blank" rel="noopener"><span>[Website]</span></a><span> [</span><a href="https://www.aicrowd.com/challenges/eccv-2020-commands-4-autonomous-vehicles" target="_blank" rel="noopener"><span>Challenge]</span></a><span> [</span><a href="https://github.com/talk2car/Talk2Car/tree/master/c4av_model" target="_blank" rel="noopener"><span>Code]</span></a><span> [</span><a href="https://www.youtube.com/watch?v=G6fRK3xoAYk" target="_blank" rel="noopener"><span>Trailer]</span></a></p>
+<ul>
+<li><strong><span>OverView</span></strong><span>: The C4AV workshop aims to develop state-of-the-art models that can tackle the joint understanding of vision and language for real-word task, particularly in a self-driving car setting.</span></li>
+<li><strong><span>Challenge</span></strong><span>: Based on the Talk2Car dataset. A passenger gives a natural language command to express an action that needs to be taken by the autonomous vehicle. Every command refers to an object visible from the front of the vehicle. The model is tasked with predicting the coordinates of a 2D bounding box around the referred object.</span>
+<blockquote>
+<p><span>[Comments]: The task of this challenge can provide some benchmarks for visual grounding part of our project.</span></p>
+</blockquote>
+</li>
+<li><strong><span>Example</span></strong><span>: “You can park up ahead behind the </span><em><strong><span>silver car</span></strong></em><span>, next to that lamp post with the orange sign on it.”</span><br>
+<img src="https://i.imgur.com/qhFqCjF.png" alt="" loading="lazy"></li>
+<li><strong><span>Evaluation</span></strong><span>: The rate at which the IoU of the predicted and ground-truth bounding box exceeds 50% (AP50).</span></li>
+<li><a href="https://www.aicrowd.com/challenges/eccv-2020-commands-4-autonomous-vehicles/leaderboards" target="_blank" rel="noopener"><strong><span>Leaderboard</span></strong></a><span>: 0.71</span></li>
+<li><strong><span>Paper Submissions</span></strong><span>: See </span><a href="https://mars-tin.github.io/archives/reading/c4av/#C4AV-Papers" target="_blank" rel="noopener"><span>C4AV Papers</span></a><span>.</span></li>
+</ul>
+</li>
+<li>
+<p><strong><span>Reasoning for Complex QA (RCQA) Workshop</span></strong><br>
 <span>AAAI 2020 &amp; 2019.</span><br>
-<span>[</span><a href="https://rcqa-ws.github.io/" target="_blank" rel="noopener"><span>Website 2020]</span></a><span> [</span><a href="https://researcher.watson.ibm.com/researcher/view_group.php?id=9632" target="_blank" rel="noopener"><span>Website 2019]</span></a></li>
+<span>[</span><a href="https://rcqa-ws.github.io/" target="_blank" rel="noopener"><span>Website 2020]</span></a><span> [</span><a href="https://researcher.watson.ibm.com/researcher/view_group.php?id=9632" target="_blank" rel="noopener"><span>Website 2019]</span></a></p>
+<ul>
+<li><strong><span>OverView</span></strong><span>: Most of these advances have focused on shallow QA tasks that can be tackled very effectively by existing retrieval-based techniques. The definition of complex questions varies, but they can most generally be thought of as instances that require intelligent behavior and reasoning on the part of an agent to solve.</span></li>
+<li><strong><span>Aim</span></strong><span>: Catalyze progress on the CQA problem, and create a vibrant test-bed of problems for various AI sub-fields and present a generalized task that can act as a harbinger of progress in AI.</span>
+<blockquote>
+<p><span>[Comments]: One of the Talk2Car papers was accepted to RCQA 2020. This can be a target workshop as it seems to be annual.</span></p>
+</blockquote>
+</li>
+</ul>
+</li>
 </ul><h3 id="Talk2Car-Papers" data-id="Talk2Car-Papers"><a class="anchor hidden-xs" href="#Talk2Car-Papers" title="Talk2Car-Papers"><span class="octicon octicon-link"></span></a><span>Talk2Car Papers</span></h3><ul>
 <li><strong><span>Talk2Car: Taking Control of Your Self-Driving Car</span></strong><br>
 <em><span>Thierry Deruyttere, Simon Vandenhende, Dusan Grujicic, Luc Van Gool, Marie-Francine Moens</span></em><br>
@@ -92,8 +117,8 @@
             <ul id="ui-toc" class="ui-toc-dropdown dropdown-menu" aria-labelledby="tocLabel">
                 <div class="toc"><ul class="nav">
 <li class=""><a href="#Commands-for-Autonomous-Vehicles" title="Commands for Autonomous Vehicles">Commands for Autonomous Vehicles</a><ul class="nav">
-<li><a href="#Resources" title="Resources">Resources</a><ul class="nav">
-<li><a href="#Workshops-and-Challenges" title="Workshops and Challenges">Workshops and Challenges</a></li>
+<li class=""><a href="#Resources" title="Resources">Resources</a><ul class="nav">
+<li class=""><a href="#Workshops-and-Challenges" title="Workshops and Challenges">Workshops and Challenges</a></li>
 <li><a href="#Talk2Car-Papers" title="Talk2Car Papers">Talk2Car Papers</a></li>
 <li><a href="#C4AV-Papers" title="C4AV Papers">C4AV Papers</a></li>
 </ul>
@@ -108,8 +133,8 @@
     <div id="ui-toc-affix" class="ui-affix-toc ui-toc-dropdown unselectable hidden-print" data-spy="affix" style="top:17px;display:none;" null null>
         <div class="toc"><ul class="nav">
 <li class=""><a href="#Commands-for-Autonomous-Vehicles" title="Commands for Autonomous Vehicles">Commands for Autonomous Vehicles</a><ul class="nav">
-<li><a href="#Resources" title="Resources">Resources</a><ul class="nav">
-<li><a href="#Workshops-and-Challenges" title="Workshops and Challenges">Workshops and Challenges</a></li>
+<li class=""><a href="#Resources" title="Resources">Resources</a><ul class="nav">
+<li class=""><a href="#Workshops-and-Challenges" title="Workshops and Challenges">Workshops and Challenges</a></li>
 <li><a href="#Talk2Car-Papers" title="Talk2Car Papers">Talk2Car Papers</a></li>
 <li><a href="#C4AV-Papers" title="C4AV Papers">C4AV Papers</a></li>
 </ul>
