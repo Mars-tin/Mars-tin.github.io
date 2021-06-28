@@ -1,0 +1,586 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="mobile-web-app-capable" content="yes">
+    <title>
+        Graph for Natural Langauge Processing - HackMD
+    </title>
+    <link rel="icon" type="image/png" href="https://hackmd.io/favicon.png">
+    <link rel="apple-touch-icon" href="https://hackmd.io/apple-touch-icon.png">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha256-916EbMg70RQy9LHiGkXzG8hSg9EdNy97GazNG/aiY1w=" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha256-eZrrJcwDc/3uDhsdt61sL2oOBY362qM3lon1gyExkL0=" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/2.0.1/css/ionicons.min.css" integrity="sha256-3iu9jgsy9TpTwXKb7bNQzqWekRX7pPK+2OLj3R922fo=" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/octicons/3.5.0/octicons.min.css" integrity="sha256-QiWfLIsCT02Sdwkogf6YMiQlj4NE84MKkzEMkZnMGdg=" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.5.1/themes/prism.min.css" integrity="sha256-vtR0hSWRc3Tb26iuN2oZHt3KRUomwTufNIf5/4oeCyg=" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@hackmd/emojify.js@2.1.0/dist/css/basic/emojify.min.css" integrity="sha256-UOrvMOsSDSrW6szVLe8ZDZezBxh5IoIfgTwdNDgTjiU=" crossorigin="anonymous" />
+    <style>
+        @import url(https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,500,500i|Source+Code+Pro:300,400,500|Source+Sans+Pro:300,300i,400,400i,600,600i|Source+Serif+Pro&subset=latin-ext);.hljs{display:block;background:#fff;padding:.5em;color:#333;overflow-x:auto}.hljs-comment,.hljs-meta{color:#969896}.hljs-emphasis,.hljs-quote,.hljs-string,.hljs-strong,.hljs-template-variable,.hljs-variable{color:#df5000}.hljs-keyword,.hljs-selector-tag,.hljs-type{color:#a71d5d}.hljs-attribute,.hljs-bullet,.hljs-literal,.hljs-number,.hljs-symbol{color:#0086b3}.hljs-built_in,.hljs-builtin-name{color:#005cc5}.hljs-name,.hljs-section{color:#63a35c}.hljs-tag{color:#333}.hljs-attr,.hljs-selector-attr,.hljs-selector-class,.hljs-selector-id,.hljs-selector-pseudo,.hljs-title{color:#795da3}.hljs-addition{color:#55a532;background-color:#eaffea}.hljs-deletion{color:#bd2c00;background-color:#ffecec}.hljs-link{text-decoration:underline}.markdown-body{font-size:16px;line-height:1.5;word-wrap:break-word}.markdown-body:after,.markdown-body:before{display:table;content:""}.markdown-body:after{clear:both}.markdown-body>:first-child{margin-top:0!important}.markdown-body>:last-child{margin-bottom:0!important}.markdown-body a:not([href]){color:inherit;text-decoration:none}.markdown-body .absent{color:#c00}.markdown-body .anchor{float:left;padding-right:4px;margin-left:-20px;line-height:1}.markdown-body .anchor:focus{outline:none}.markdown-body blockquote,.markdown-body dl,.markdown-body ol,.markdown-body p,.markdown-body pre,.markdown-body table,.markdown-body ul{margin-top:0;margin-bottom:16px}.markdown-body hr{height:.25em;padding:0;margin:24px 0;background-color:#e7e7e7;border:0}.markdown-body blockquote{font-size:16px;padding:0 1em;color:#777;border-left:.25em solid #ddd}.markdown-body blockquote>:first-child{margin-top:0}.markdown-body blockquote>:last-child{margin-bottom:0}.markdown-body kbd,.popover kbd{display:inline-block;padding:3px 5px;font-size:11px;line-height:10px;color:#555;vertical-align:middle;background-color:#fcfcfc;border:1px solid #ccc;border-bottom-color:#bbb;border-radius:3px;box-shadow:inset 0 -1px 0 #bbb}.markdown-body .loweralpha{list-style-type:lower-alpha}.markdown-body h1,.markdown-body h2,.markdown-body h3,.markdown-body h4,.markdown-body h5,.markdown-body h6{margin-top:24px;margin-bottom:16px;font-weight:600;line-height:1.25}.markdown-body h1 .octicon-link,.markdown-body h2 .octicon-link,.markdown-body h3 .octicon-link,.markdown-body h4 .octicon-link,.markdown-body h5 .octicon-link,.markdown-body h6 .octicon-link{color:#000;vertical-align:middle;visibility:hidden}.markdown-body h1:hover .anchor,.markdown-body h2:hover .anchor,.markdown-body h3:hover .anchor,.markdown-body h4:hover .anchor,.markdown-body h5:hover .anchor,.markdown-body h6:hover .anchor{text-decoration:none}.markdown-body h1:hover .anchor .octicon-link,.markdown-body h2:hover .anchor .octicon-link,.markdown-body h3:hover .anchor .octicon-link,.markdown-body h4:hover .anchor .octicon-link,.markdown-body h5:hover .anchor .octicon-link,.markdown-body h6:hover .anchor .octicon-link{visibility:visible}.markdown-body h1 code,.markdown-body h1 tt,.markdown-body h2 code,.markdown-body h2 tt,.markdown-body h3 code,.markdown-body h3 tt,.markdown-body h4 code,.markdown-body h4 tt,.markdown-body h5 code,.markdown-body h5 tt,.markdown-body h6 code,.markdown-body h6 tt{font-size:inherit}.markdown-body h1{font-size:2em}.markdown-body h1,.markdown-body h2{padding-bottom:.3em;border-bottom:1px solid #eee}.markdown-body h2{font-size:1.5em}.markdown-body h3{font-size:1.25em}.markdown-body h4{font-size:1em}.markdown-body h5{font-size:.875em}.markdown-body h6{font-size:.85em;color:#777}.markdown-body ol,.markdown-body ul{padding-left:2em}.markdown-body ol.no-list,.markdown-body ul.no-list{padding:0;list-style-type:none}.markdown-body ol ol,.markdown-body ol ul,.markdown-body ul ol,.markdown-body ul ul{margin-top:0;margin-bottom:0}.markdown-body li>p{margin-top:16px}.markdown-body li+li{padding-top:.25em}.markdown-body dl{padding:0}.markdown-body dl dt{padding:0;margin-top:16px;font-size:1em;font-style:italic;font-weight:700}.markdown-body dl dd{padding:0 16px;margin-bottom:16px}.markdown-body table{display:block;width:100%;overflow:auto;word-break:normal;word-break:keep-all}.markdown-body table th{font-weight:700}.markdown-body table td,.markdown-body table th{padding:6px 13px;border:1px solid #ddd}.markdown-body table tr{background-color:#fff;border-top:1px solid #ccc}.markdown-body table tr:nth-child(2n){background-color:#f8f8f8}.markdown-body img{max-width:100%;box-sizing:content-box;background-color:#fff}.markdown-body img[align=right]{padding-left:20px}.markdown-body img[align=left]{padding-right:20px}.markdown-body .emoji{max-width:none;vertical-align:text-top;background-color:transparent}.markdown-body span.frame{display:block;overflow:hidden}.markdown-body span.frame>span{display:block;float:left;width:auto;padding:7px;margin:13px 0 0;overflow:hidden;border:1px solid #ddd}.markdown-body span.frame span img{display:block;float:left}.markdown-body span.frame span span{display:block;padding:5px 0 0;clear:both;color:#333}.markdown-body span.align-center{display:block;overflow:hidden;clear:both}.markdown-body span.align-center>span{display:block;margin:13px auto 0;overflow:hidden;text-align:center}.markdown-body span.align-center span img{margin:0 auto;text-align:center}.markdown-body span.align-right{display:block;overflow:hidden;clear:both}.markdown-body span.align-right>span{display:block;margin:13px 0 0;overflow:hidden;text-align:right}.markdown-body span.align-right span img{margin:0;text-align:right}.markdown-body span.float-left{display:block;float:left;margin-right:13px;overflow:hidden}.markdown-body span.float-left span{margin:13px 0 0}.markdown-body span.float-right{display:block;float:right;margin-left:13px;overflow:hidden}.markdown-body span.float-right>span{display:block;margin:13px auto 0;overflow:hidden;text-align:right}.markdown-body code,.markdown-body tt{padding:0;padding-top:.2em;padding-bottom:.2em;margin:0;font-size:85%;background-color:rgba(0,0,0,.04);border-radius:3px}.markdown-body code:after,.markdown-body code:before,.markdown-body tt:after,.markdown-body tt:before{letter-spacing:-.2em;content:"\00a0"}.markdown-body code br,.markdown-body tt br{display:none}.markdown-body del code{text-decoration:inherit}.markdown-body pre{word-wrap:normal}.markdown-body pre>code{padding:0;margin:0;font-size:100%;word-break:normal;white-space:pre;background:transparent;border:0}.markdown-body .highlight{margin-bottom:16px}.markdown-body .highlight pre{margin-bottom:0;word-break:normal}.markdown-body .highlight pre,.markdown-body pre{padding:16px;overflow:auto;font-size:85%;line-height:1.45;background-color:#f7f7f7;border-radius:3px}.markdown-body pre code,.markdown-body pre tt{display:inline;max-width:auto;padding:0;margin:0;overflow:visible;line-height:inherit;word-wrap:normal;background-color:transparent;border:0}.markdown-body pre code:after,.markdown-body pre code:before,.markdown-body pre tt:after,.markdown-body pre tt:before{content:normal}.markdown-body .csv-data td,.markdown-body .csv-data th{padding:5px;overflow:hidden;font-size:12px;line-height:1;text-align:left;white-space:nowrap}.markdown-body .csv-data .blob-line-num{padding:10px 8px 9px;text-align:right;background:#fff;border:0}.markdown-body .csv-data tr{border-top:0}.markdown-body .csv-data th{font-weight:700;background:#f8f8f8;border-top:0}.news .alert .markdown-body blockquote{padding:0 0 0 40px;border:0 none}.activity-tab .news .alert .commits,.activity-tab .news .markdown-body blockquote{padding-left:0}.task-list-item{list-style-type:none}.task-list-item label{font-weight:400}.task-list-item.enabled label{cursor:pointer}.task-list-item+.task-list-item{margin-top:3px}.task-list-item-checkbox{float:left;margin:.31em 0 .2em -1.3em!important;vertical-align:middle;cursor:default!important}.markdown-body{padding-top:40px;padding-bottom:40px;max-width:758px;overflow:visible!important;position:relative}.markdown-body .emoji{vertical-align:top}.markdown-body pre{border:inherit!important}.markdown-body code{color:inherit!important}.markdown-body pre code .wrapper{display:-moz-inline-flex;display:-ms-inline-flex;display:-o-inline-flex;display:inline-flex}.markdown-body pre code .gutter{float:left;overflow:hidden;-webkit-user-select:none;user-select:none}.markdown-body pre code .gutter.linenumber{text-align:right;position:relative;display:inline-block;cursor:default;z-index:4;padding:0 8px 0 0;min-width:20px;box-sizing:content-box;color:#afafaf!important;border-right:3px solid #6ce26c!important}.markdown-body pre code .gutter.linenumber>span:before{content:attr(data-linenumber)}.markdown-body pre code .code{float:left;margin:0 0 0 16px}.markdown-body .gist .line-numbers{border-left:none;border-top:none;border-bottom:none}.markdown-body .gist .line-data{border:none}.markdown-body .gist table{border-spacing:0;border-collapse:inherit!important}.markdown-body code[data-gist-id]{background:none;padding:0}.markdown-body code[data-gist-id]:after,.markdown-body code[data-gist-id]:before{content:""}.markdown-body code[data-gist-id] .blob-num{border:unset}.markdown-body code[data-gist-id] table{overflow:unset;margin-bottom:unset}.markdown-body code[data-gist-id] table tr{background:unset}.markdown-body[dir=rtl] pre{direction:ltr}.markdown-body[dir=rtl] code{direction:ltr;unicode-bidi:embed}.markdown-body .alert>p{margin-bottom:0}.markdown-body pre.abc,.markdown-body pre.flow-chart,.markdown-body pre.graphviz,.markdown-body pre.mermaid,.markdown-body pre.sequence-diagram,.markdown-body pre.vega{text-align:center;background-color:inherit;border-radius:0;white-space:inherit;overflow:visible}.markdown-body pre.abc>code,.markdown-body pre.flow-chart>code,.markdown-body pre.graphviz>code,.markdown-body pre.mermaid>code,.markdown-body pre.sequence-diagram>code,.markdown-body pre.vega>code{text-align:left}.markdown-body pre.abc>svg,.markdown-body pre.flow-chart>svg,.markdown-body pre.graphviz>svg,.markdown-body pre.mermaid>svg,.markdown-body pre.sequence-diagram>svg,.markdown-body pre.vega>svg{max-width:100%;height:100%}.markdown-body pre>code.wrap{white-space:pre-wrap;white-space:-moz-pre-wrap;white-space:-pre-wrap;white-space:-o-pre-wrap;word-wrap:break-word}.markdown-body .alert>p,.markdown-body .alert>ul{margin-bottom:0}.markdown-body summary{display:list-item}.markdown-body summary:focus{outline:none}.markdown-body details summary{cursor:pointer}.markdown-body details:not([open])>:not(summary){display:none}.markdown-body figure{margin:1em 40px}.markdown-body .mark,.markdown-body mark{background-color:#fff1a7}.vimeo,.youtube{cursor:pointer;display:table;text-align:center;background-position:50%;background-repeat:no-repeat;background-size:contain;background-color:#000;overflow:hidden}.vimeo,.youtube{position:relative;width:100%}.youtube{padding-bottom:56.25%}.vimeo img{width:100%;object-fit:contain;z-index:0}.youtube img{object-fit:cover;z-index:0}.vimeo iframe,.youtube iframe,.youtube img{width:100%;height:100%;position:absolute;top:0;left:0}.vimeo iframe,.youtube iframe{vertical-align:middle;z-index:1}.vimeo .icon,.youtube .icon{position:absolute;height:auto;width:auto;top:50%;left:50%;transform:translate(-50%,-50%);color:#fff;opacity:.3;transition:opacity .2s;z-index:0}.vimeo:hover .icon,.youtube:hover .icon{opacity:.6;transition:opacity .2s}.slideshare .inner,.speakerdeck .inner{position:relative;width:100%}.slideshare .inner iframe,.speakerdeck .inner iframe{position:absolute;top:0;bottom:0;left:0;right:0;width:100%;height:100%}.figma{display:table;position:relative;width:100%;padding-bottom:56.25%}.figma iframe{position:absolute;top:0;bottom:0;left:0;right:0;width:100%;height:100%;border:1px solid #eee}.MJX_Assistive_MathML{display:none}#MathJax_Message{z-index:1000!important}.ui-infobar{position:relative;z-index:2;max-width:760px;margin:25px auto -25px;color:#777}.toc .invisable-node{list-style-type:none}.ui-toc{position:fixed;bottom:20px;z-index:998}.ui-toc.both-mode{margin-left:8px}.ui-toc.both-mode .ui-toc-label{height:40px;padding:10px 4px;border-top-left-radius:0;border-bottom-left-radius:0}.ui-toc-label{background-color:#e6e6e6;border:none;color:#868686;transition:opacity .2s}.ui-toc .open .ui-toc-label{opacity:1;color:#fff;transition:opacity .2s}.ui-toc-label:focus{opacity:.3;background-color:#ccc;color:#000}.ui-toc-label:hover{opacity:1;background-color:#ccc;transition:opacity .2s}.ui-toc-dropdown{margin-top:20px;margin-bottom:20px;padding-left:10px;padding-right:10px;max-width:45vw;width:25vw;max-height:70vh;overflow:auto;text-align:inherit}.ui-toc-dropdown>.toc{max-height:calc(70vh - 100px);overflow:auto}.ui-toc-dropdown[dir=rtl] .nav{padding-right:0;letter-spacing:.0029em}.ui-toc-dropdown a{overflow:hidden;text-overflow:ellipsis;white-space:pre}.ui-toc-dropdown .nav>li>a{display:block;padding:4px 20px;font-size:13px;font-weight:500;color:#767676}.ui-toc-dropdown .nav>li:first-child:last-child>ul,.ui-toc-dropdown .toc.expand ul{display:block}.ui-toc-dropdown .nav>li>a:focus,.ui-toc-dropdown .nav>li>a:hover{padding-left:19px;color:#000;text-decoration:none;background-color:transparent;border-left:1px solid #000}.ui-toc-dropdown[dir=rtl] .nav>li>a:focus,.ui-toc-dropdown[dir=rtl] .nav>li>a:hover{padding-right:19px;border-left:none;border-right:1px solid #000}.ui-toc-dropdown .nav>.active:focus>a,.ui-toc-dropdown .nav>.active:hover>a,.ui-toc-dropdown .nav>.active>a{padding-left:18px;font-weight:700;color:#000;background-color:transparent;border-left:2px solid #000}.ui-toc-dropdown[dir=rtl] .nav>.active:focus>a,.ui-toc-dropdown[dir=rtl] .nav>.active:hover>a,.ui-toc-dropdown[dir=rtl] .nav>.active>a{padding-right:18px;border-left:none;border-right:2px solid #000}.ui-toc-dropdown .nav .nav{display:none;padding-bottom:10px}.ui-toc-dropdown .nav>.active>ul{display:block}.ui-toc-dropdown .nav .nav>li>a{padding-top:1px;padding-bottom:1px;padding-left:30px;font-size:12px;font-weight:400}.ui-toc-dropdown[dir=rtl] .nav .nav>li>a{padding-right:30px}.ui-toc-dropdown .nav .nav>li>ul>li>a{padding-top:1px;padding-bottom:1px;padding-left:40px;font-size:12px;font-weight:400}.ui-toc-dropdown[dir=rtl] .nav .nav>li>ul>li>a{padding-right:40px}.ui-toc-dropdown .nav .nav>li>a:focus,.ui-toc-dropdown .nav .nav>li>a:hover{padding-left:29px}.ui-toc-dropdown[dir=rtl] .nav .nav>li>a:focus,.ui-toc-dropdown[dir=rtl] .nav .nav>li>a:hover{padding-right:29px}.ui-toc-dropdown .nav .nav>li>ul>li>a:focus,.ui-toc-dropdown .nav .nav>li>ul>li>a:hover{padding-left:39px}.ui-toc-dropdown[dir=rtl] .nav .nav>li>ul>li>a:focus,.ui-toc-dropdown[dir=rtl] .nav .nav>li>ul>li>a:hover{padding-right:39px}.ui-toc-dropdown .nav .nav>.active:focus>a,.ui-toc-dropdown .nav .nav>.active:hover>a,.ui-toc-dropdown .nav .nav>.active>a{padding-left:28px;font-weight:500}.ui-toc-dropdown[dir=rtl] .nav .nav>.active:focus>a,.ui-toc-dropdown[dir=rtl] .nav .nav>.active:hover>a,.ui-toc-dropdown[dir=rtl] .nav .nav>.active>a{padding-right:28px}.ui-toc-dropdown .nav .nav>.active>.nav>.active:focus>a,.ui-toc-dropdown .nav .nav>.active>.nav>.active:hover>a,.ui-toc-dropdown .nav .nav>.active>.nav>.active>a{padding-left:38px;font-weight:500}.ui-toc-dropdown[dir=rtl] .nav .nav>.active>.nav>.active:focus>a,.ui-toc-dropdown[dir=rtl] .nav .nav>.active>.nav>.active:hover>a,.ui-toc-dropdown[dir=rtl] .nav .nav>.active>.nav>.active>a{padding-right:38px}.markdown-body{font-family:-apple-system,BlinkMacSystemFont,Segoe UI,Helvetica Neue,Helvetica,Roboto,Arial,sans-serif}html[lang^=ja] .markdown-body{font-family:-apple-system,BlinkMacSystemFont,Segoe UI,Helvetica Neue,Helvetica,Roboto,Arial,Hiragino Kaku Gothic Pro,ヒラギノ角ゴ Pro W3,Osaka,Meiryo,メイリオ,MS Gothic,ＭＳ\ ゴシック,sans-serif}html[lang=zh-tw] .markdown-body{font-family:-apple-system,BlinkMacSystemFont,Segoe UI,Helvetica Neue,Helvetica,Roboto,Arial,PingFang TC,Microsoft JhengHei,微軟正黑,sans-serif}html[lang=zh-cn] .markdown-body{font-family:-apple-system,BlinkMacSystemFont,Segoe UI,Helvetica Neue,Helvetica,Roboto,Arial,PingFang SC,Microsoft YaHei,微软雅黑,sans-serif}html .markdown-body[lang^=ja]{font-family:-apple-system,BlinkMacSystemFont,Segoe UI,Helvetica Neue,Helvetica,Roboto,Arial,Hiragino Kaku Gothic Pro,ヒラギノ角ゴ Pro W3,Osaka,Meiryo,メイリオ,MS Gothic,ＭＳ\ ゴシック,sans-serif}html .markdown-body[lang=zh-tw]{font-family:-apple-system,BlinkMacSystemFont,Segoe UI,Helvetica Neue,Helvetica,Roboto,Arial,PingFang TC,Microsoft JhengHei,微軟正黑,sans-serif}html .markdown-body[lang=zh-cn]{font-family:-apple-system,BlinkMacSystemFont,Segoe UI,Helvetica Neue,Helvetica,Roboto,Arial,PingFang SC,Microsoft YaHei,微软雅黑,sans-serif}html[lang^=ja] .ui-toc-dropdown{font-family:Source Sans Pro,Helvetica,Arial,Meiryo UI,MS PGothic,ＭＳ\ Ｐゴシック,sans-serif}html[lang=zh-tw] .ui-toc-dropdown{font-family:Source Sans Pro,Helvetica,Arial,Microsoft JhengHei UI,微軟正黑UI,sans-serif}html[lang=zh-cn] .ui-toc-dropdown{font-family:Source Sans Pro,Helvetica,Arial,Microsoft YaHei UI,微软雅黑UI,sans-serif}html .ui-toc-dropdown[lang^=ja]{font-family:Source Sans Pro,Helvetica,Arial,Meiryo UI,MS PGothic,ＭＳ\ Ｐゴシック,sans-serif}html .ui-toc-dropdown[lang=zh-tw]{font-family:Source Sans Pro,Helvetica,Arial,Microsoft JhengHei UI,微軟正黑UI,sans-serif}html .ui-toc-dropdown[lang=zh-cn]{font-family:Source Sans Pro,Helvetica,Arial,Microsoft YaHei UI,微软雅黑UI,sans-serif}.ui-affix-toc{position:fixed;top:0;max-width:15vw;max-height:70vh;overflow:auto}.back-to-top,.expand-toggle,.go-to-bottom{display:block;padding:4px 10px;margin-top:10px;margin-left:10px;font-size:12px;font-weight:500;color:#999}.back-to-top:focus,.back-to-top:hover,.expand-toggle:focus,.expand-toggle:hover,.go-to-bottom:focus,.go-to-bottom:hover{color:#563d7c;text-decoration:none}.back-to-top,.go-to-bottom{margin-top:0}.ui-user-icon{width:20px;height:20px;display:block;border-radius:50%;margin-top:2px;margin-bottom:2px;margin-right:5px;background-position:50%;background-repeat:no-repeat;background-size:cover}.ui-user-icon.small{width:18px;height:18px;display:inline-block;vertical-align:middle;margin:0 0 .2em}.ui-infobar>small>span{line-height:22px}.ui-infobar>small .dropdown{display:inline-block}.ui-infobar>small .dropdown a:focus,.ui-infobar>small .dropdown a:hover{text-decoration:none}.ui-more-info{color:#888;cursor:pointer;vertical-align:middle}.ui-more-info .fa{font-size:16px}.ui-connectedGithub,.ui-published-note{color:#888}.ui-connectedGithub{line-height:23px;white-space:nowrap}.ui-connectedGithub a.file-path{color:#888;text-decoration:none;padding-left:22px}.ui-connectedGithub a.file-path:active,.ui-connectedGithub a.file-path:hover{color:#888;text-decoration:underline}.ui-connectedGithub .fa{font-size:20px}.ui-published-note .fa{font-size:20px;vertical-align:top}.unselectable{-webkit-user-select:none;-o-user-select:none;user-select:none}.selectable{-webkit-user-select:text;-o-user-select:text;user-select:text}@media print{blockquote,div,img,pre,table{page-break-inside:avoid!important}a[href]:after{font-size:12px!important}}.markdown-body.slides{position:relative;z-index:1;color:#222}.markdown-body.slides:before{content:"";display:block;position:absolute;top:0;left:0;right:0;bottom:0;z-index:-1;background-color:currentColor;box-shadow:0 0 0 50vw}.markdown-body.slides section[data-markdown]{position:relative;margin-bottom:1.5em;background-color:#fff;text-align:center}.markdown-body.slides section[data-markdown] code{text-align:left}.markdown-body.slides section[data-markdown]:before{content:"";display:block;padding-bottom:56.23%}.markdown-body.slides section[data-markdown]>div:first-child{position:absolute;top:50%;left:1em;right:1em;transform:translateY(-50%);max-height:100%;overflow:hidden}.markdown-body.slides section[data-markdown]>ul{display:inline-block}.markdown-body.slides>section>section+section:after{content:"";position:absolute;top:-1.5em;right:1em;height:1.5em;border:3px solid #777}.site-ui-font{font-family:Source Sans Pro,Helvetica,Arial,sans-serif}html[lang^=ja] .site-ui-font{font-family:Source Sans Pro,Helvetica,Arial,Hiragino Kaku Gothic Pro,ヒラギノ角ゴ Pro W3,Osaka,Meiryo,メイリオ,MS Gothic,ＭＳ\ ゴシック,sans-serif}html[lang=zh-tw] .site-ui-font{font-family:Source Sans Pro,Helvetica,Arial,PingFang TC,Microsoft JhengHei,微軟正黑,sans-serif}html[lang=zh-cn] .site-ui-font{font-family:Source Sans Pro,Helvetica,Arial,PingFang SC,Microsoft YaHei,微软雅黑,sans-serif}body{font-smoothing:subpixel-antialiased!important;-webkit-font-smoothing:subpixel-antialiased!important;-moz-osx-font-smoothing:auto!important;text-shadow:0 0 1em transparent,1px 1px 1.2px rgba(0,0,0,.004);-webkit-overflow-scrolling:touch;letter-spacing:.025em;font-family:Source Sans Pro,Helvetica,Arial,sans-serif}html[lang^=ja] body{font-family:Source Sans Pro,Helvetica,Arial,Hiragino Kaku Gothic Pro,ヒラギノ角ゴ Pro W3,Osaka,Meiryo,メイリオ,MS Gothic,ＭＳ\ ゴシック,sans-serif}html[lang=zh-tw] body{font-family:Source Sans Pro,Helvetica,Arial,PingFang TC,Microsoft JhengHei,微軟正黑,sans-serif}html[lang=zh-cn] body{font-family:Source Sans Pro,Helvetica,Arial,PingFang SC,Microsoft YaHei,微软雅黑,sans-serif}abbr[title]{border-bottom:none;text-decoration:underline;-webkit-text-decoration:underline dotted;text-decoration:underline dotted}abbr[data-original-title],abbr[title]{cursor:help}body.modal-open{overflow-y:auto;padding-right:0!important}
+    </style>
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+    	<script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.min.js" integrity="sha256-3Jy/GbSLrg0o9y5Z5n1uw0qxZECH7C6OQpVBgNFYa0g=" crossorigin="anonymous"></script>
+    	<script src="https://cdnjs.cloudflare.com/ajax/libs/respond.js/1.4.2/respond.min.js" integrity="sha256-g6iAfvZp+nDQ2TdTR/VVKJf3bGro4ub5fvWSWVRi2NE=" crossorigin="anonymous"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/es5-shim/4.5.9/es5-shim.min.js" integrity="sha256-8E4Is26QH0bD52WoQpcB+R/tcWQtpzlCojrybUd7Mxo=" crossorigin="anonymous"></script>
+    <![endif]-->
+</head>
+
+<body>
+    <div id="doc" class="markdown-body container-fluid comment-enabled comment-inner" data-hard-breaks="true"><h1 id="Graph-for-Natural-Langauge-Processing" data-id="Graph-for-Natural-Langauge-Processing"><a class="anchor hidden-xs" href="#Graph-for-Natural-Langauge-Processing" title="Graph-for-Natural-Langauge-Processing"><span class="octicon octicon-link"></span></a><span>Graph for Natural Langauge Processing</span></h1><blockquote>
+<p><strong><span>Graph Neural Networks for Natural Language Processing: A Survey</span></strong><br>
+<em><span>Lingfei Wu, Yu Chen, Kai Shen, Xiaojie Guo, Hanning Gao, Shucheng Li, Jian Pei, Bo Long</span></em><br>
+<span>Arxiv, 2021.</span><br>
+<span>[</span><a href="https://arxiv.org/abs/2106.06090" target="_blank" rel="noopener"><span>Paper]</span></a></p>
+</blockquote><h2 id="Overview" data-id="Overview"><a class="anchor hidden-xs" href="#Overview" title="Overview"><span class="octicon octicon-link"></span></a><span>Overview</span></h2><h3 id="Representing-Language-Processing" data-id="Representing-Language-Processing"><a class="anchor hidden-xs" href="#Representing-Language-Processing" title="Representing-Language-Processing"><span class="octicon octicon-link"></span></a><span>Representing Language Processing</span></h3><h4 id="Bag-of-Tokens" data-id="Bag-of-Tokens"><a class="anchor hidden-xs" href="#Bag-of-Tokens" title="Bag-of-Tokens"><span class="octicon octicon-link"></span></a><span>Bag of Tokens</span></h4><ul>
+<li><span>Examples:</span>
+<ul>
+<li><span>Bag-of-Words (BoW) Models;</span></li>
+<li><span>Topic Modelling.</span></li>
+</ul>
+</li>
+<li><span>Problems:</span>
+<ul>
+<li><span>Ignores the specific positions of tokens in text;</span></li>
+<li><span>Only considers number of occurrences of a unique token in text.</span></li>
+</ul>
+</li>
+</ul><h4 id="Sequence-of-Tokens" data-id="Sequence-of-Tokens"><a class="anchor hidden-xs" href="#Sequence-of-Tokens" title="Sequence-of-Tokens"><span class="octicon octicon-link"></span></a><span>Sequence of Tokens</span></h4><ul>
+<li><span>Examples:</span>
+<ul>
+<li><span>Linear-chain CRF;</span></li>
+<li><span>Hidden Markov Models (HMM);</span></li>
+<li><span>Sequence Models (RNN, LSTM, Transformers).</span></li>
+</ul>
+</li>
+<li><span>Problems:</span>
+<ul>
+<li><span>Ignores the rich structural information and relationships among textual elements.</span></li>
+</ul>
+</li>
+</ul><h4 id="Graph" data-id="Graph"><a class="anchor hidden-xs" href="#Graph" title="Graph"><span class="octicon octicon-link"></span></a><span>Graph</span></h4><ul>
+<li><span>Examples:</span>
+<ul>
+<li><span>Dependency and Constituency Graphs;</span></li>
+<li><span>Abstract Meaning Representation (AMR) Graphs;</span></li>
+<li><span>Information Extraction (IE) Graphs;</span></li>
+<li><span>Knowledge Graphs (KG);</span></li>
+<li><span>Lexical Networks.</span></li>
+</ul>
+</li>
+</ul><h3 id="Classic-Graph-Based-Methods-for-NLP" data-id="Classic-Graph-Based-Methods-for-NLP"><a class="anchor hidden-xs" href="#Classic-Graph-Based-Methods-for-NLP" title="Classic-Graph-Based-Methods-for-NLP"><span class="octicon octicon-link"></span></a><span>Classic Graph-Based Methods for NLP</span></h3><h4 id="Algorithms" data-id="Algorithms"><a class="anchor hidden-xs" href="#Algorithms" title="Algorithms"><span class="octicon octicon-link"></span></a><span>Algorithms</span></h4><ul>
+<li><strong><span>Random Walk Algorithms</span></strong>
+<ul>
+<li><span>Idea: Produce random paths in a graph to converge to a stationary distribution over all the nodes.</span></li>
+<li><span>Purpose:</span>
+<ul>
+<li><span>Node saliency</span></li>
+<li><span>Graph similarity</span></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><strong><span>Graph Clustering Algorithms</span></strong>
+<ul>
+<li><span>Examples:</span>
+<ul>
+<li><span>Spectral clustering</span></li>
+<li><span>Random walk clustering</span></li>
+<li><span>Min-cut clustering</span></li>
+</ul>
+</li>
+<li><span>Purpose:</span>
+<ul>
+<li><span>Text clustering</span></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><strong><span>Graph Matching Algorithms</span></strong>
+<ul>
+<li><span>Examples:</span>
+<ul>
+<li><span>Graph Edit Distance</span></li>
+</ul>
+</li>
+<li><span>Purpose:</span>
+<ul>
+<li><span>Graph similarity</span></li>
+<li><span>Text entailment</span></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><strong><span>Label Propagation Algorithms (LPA)</span></strong>
+<ul>
+<li><span>Idea: Propagate and aggregate labels iteratively across the graph in a semi-supervised manner.</span></li>
+<li><span>Purpose:</span>
+<ul>
+<li><span>Word-sense disambiguation</span></li>
+<li><span>Sentiment analysis</span></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul><h4 id="Problems" data-id="Problems"><a class="anchor hidden-xs" href="#Problems" title="Problems"><span class="octicon octicon-link"></span></a><span>Problems</span></h4><ul>
+<li><strong><span>Limited Expressive Power</span></strong>
+<ul>
+<li><span>Focus on graph structures but ignore the node and edge features/attributes.</span></li>
+</ul>
+</li>
+<li><strong><span>No Unified and General Framework</span></strong>
+<ul>
+<li><span>Different graph-based algorithms have different properties and settings, most of which are task-specific.</span></li>
+</ul>
+</li>
+</ul><h4 id="Further-Reading" data-id="Further-Reading"><a class="anchor hidden-xs" href="#Further-Reading" title="Further-Reading"><span class="octicon octicon-link"></span></a><span>Further Reading</span></h4><blockquote>
+<p><strong><span>Graph-based Natural Language Processing and Information Retrieval</span></strong><br>
+<em><span>Rada Mihalcea, Dragomir Radev</span></em><br>
+<span>Cambridge University Press, 2011.</span><br>
+<span>[</span><a href="https://www.google.com/books/edition/Graph_based_Natural_Language_Processing/kByP4X9c5AQC" target="_blank" rel="noopener"><span>Book]</span></a></p>
+</blockquote><h3 id="Graph-Neural-Networks" data-id="Graph-Neural-Networks"><a class="anchor hidden-xs" href="#Graph-Neural-Networks" title="Graph-Neural-Networks"><span class="octicon octicon-link"></span></a><span>Graph Neural Networks</span></h3><p><span>Note that there have been many taxonomies for GNN models. The following fliter-pooling framework was not popular and has been outdated for machine learning community, but is sufficient for NLP context. I’d like to point to a very well-written article </span><a href="https://jonathan-hui.medium.com/graph-convolutional-networks-gcn-pooling-839184205692" target="_blank" rel="noopener"><em><span>Graph Convolutional Networks and Pooling</span></em></a><span> by Jonathan Hui.</span></p><h4 id="Framework" data-id="Framework"><a class="anchor hidden-xs" href="#Framework" title="Framework"><span class="octicon octicon-link"></span></a><span>Framework</span></h4><p><span>We use </span><span class="mathjax"><span class="MathJax_Preview" style="color: inherit;"></span><span id="MathJax-Element-117-Frame" class="mjx-chtml MathJax_CHTML" tabindex="0" style="font-size: 120%; position: relative;" data-mathml="<math xmlns=&quot;http://www.w3.org/1998/Math/MathML&quot;><mi>A</mi></math>" role="presentation"><span id="MJXc-Node-2458" class="mjx-math" aria-hidden="true"><span id="MJXc-Node-2459" class="mjx-mrow"><span id="MJXc-Node-2460" class="mjx-mi"><span class="mjx-char MJXc-TeX-math-I" style="padding-top: 0.471em; padding-bottom: 0.263em;">A</span></span></span></span><span class="MJX_Assistive_MathML" role="presentation"><math xmlns="http://www.w3.org/1998/Math/MathML"><mi>A</mi></math></span></span><script type="math/tex" id="MathJax-Element-117">A</script></span><span> to denote the adjacency matrix of the graph, </span><span class="mathjax"><span class="MathJax_Preview" style="color: inherit;"></span><span id="MathJax-Element-118-Frame" class="mjx-chtml MathJax_CHTML" tabindex="0" style="font-size: 120%; position: relative;" data-mathml="<math xmlns=&quot;http://www.w3.org/1998/Math/MathML&quot;><msubsup><mrow class=&quot;MJX-TeXAtom-ORD&quot;><mi mathvariant=&quot;bold&quot;>h</mi></mrow><mi>i</mi><mrow class=&quot;MJX-TeXAtom-ORD&quot;><mo stretchy=&quot;false&quot;>(</mo><mi>l</mi><mo stretchy=&quot;false&quot;>)</mo></mrow></msubsup></math>" role="presentation"><span id="MJXc-Node-2461" class="mjx-math" aria-hidden="true"><span id="MJXc-Node-2462" class="mjx-mrow"><span id="MJXc-Node-2463" class="mjx-msubsup"><span class="mjx-base"><span id="MJXc-Node-2464" class="mjx-texatom"><span id="MJXc-Node-2465" class="mjx-mrow"><span id="MJXc-Node-2466" class="mjx-mi"><span class="mjx-char MJXc-TeX-main-B" style="padding-top: 0.367em; padding-bottom: 0.367em;">h</span></span></span></span></span><span class="mjx-stack" style="vertical-align: -0.311em;"><span class="mjx-sup" style="font-size: 70.7%; padding-bottom: 0.255em; padding-left: 0px; padding-right: 0.071em;"><span id="MJXc-Node-2468" class="mjx-texatom" style=""><span id="MJXc-Node-2469" class="mjx-mrow"><span id="MJXc-Node-2470" class="mjx-mo"><span class="mjx-char MJXc-TeX-main-R" style="padding-top: 0.471em; padding-bottom: 0.576em;">(</span></span><span id="MJXc-Node-2471" class="mjx-mi"><span class="mjx-char MJXc-TeX-math-I" style="padding-top: 0.471em; padding-bottom: 0.263em;">l</span></span><span id="MJXc-Node-2472" class="mjx-mo"><span class="mjx-char MJXc-TeX-main-R" style="padding-top: 0.471em; padding-bottom: 0.576em;">)</span></span></span></span></span><span class="mjx-sub" style="font-size: 70.7%; padding-right: 0.071em;"><span id="MJXc-Node-2467" class="mjx-mi" style=""><span class="mjx-char MJXc-TeX-math-I" style="padding-top: 0.419em; padding-bottom: 0.263em;">i</span></span></span></span></span></span></span><span class="MJX_Assistive_MathML" role="presentation"><math xmlns="http://www.w3.org/1998/Math/MathML"><msubsup><mrow class="MJX-TeXAtom-ORD"><mi mathvariant="bold">h</mi></mrow><mi>i</mi><mrow class="MJX-TeXAtom-ORD"><mo stretchy="false">(</mo><mi>l</mi><mo stretchy="false">)</mo></mrow></msubsup></math></span></span><script type="math/tex" id="MathJax-Element-118">\mathbf{h}_i^{(l)}</script></span><span> to denote the embedding of vertex </span><span class="mathjax"><span class="MathJax_Preview" style="color: inherit;"></span><span id="MathJax-Element-119-Frame" class="mjx-chtml MathJax_CHTML" tabindex="0" style="font-size: 120%; position: relative;" data-mathml="<math xmlns=&quot;http://www.w3.org/1998/Math/MathML&quot;><msub><mi>v</mi><mi>i</mi></msub></math>" role="presentation"><span id="MJXc-Node-2473" class="mjx-math" aria-hidden="true"><span id="MJXc-Node-2474" class="mjx-mrow"><span id="MJXc-Node-2475" class="mjx-msubsup"><span class="mjx-base"><span id="MJXc-Node-2476" class="mjx-mi"><span class="mjx-char MJXc-TeX-math-I" style="padding-top: 0.211em; padding-bottom: 0.263em;">v</span></span></span><span class="mjx-sub" style="font-size: 70.7%; vertical-align: -0.212em; padding-right: 0.071em;"><span id="MJXc-Node-2477" class="mjx-mi" style=""><span class="mjx-char MJXc-TeX-math-I" style="padding-top: 0.419em; padding-bottom: 0.263em;">i</span></span></span></span></span></span><span class="MJX_Assistive_MathML" role="presentation"><math xmlns="http://www.w3.org/1998/Math/MathML"><msub><mi>v</mi><mi>i</mi></msub></math></span></span><script type="math/tex" id="MathJax-Element-119">v_i</script></span><span> at the </span><span class="mathjax"><span class="MathJax_Preview" style="color: inherit;"></span><span id="MathJax-Element-120-Frame" class="mjx-chtml MathJax_CHTML" tabindex="0" style="font-size: 120%; position: relative;" data-mathml="<math xmlns=&quot;http://www.w3.org/1998/Math/MathML&quot;><msup><mi>l</mi><mrow class=&quot;MJX-TeXAtom-ORD&quot;><mtext>th</mtext></mrow></msup></math>" role="presentation"><span id="MJXc-Node-2478" class="mjx-math" aria-hidden="true"><span id="MJXc-Node-2479" class="mjx-mrow"><span id="MJXc-Node-2480" class="mjx-msubsup"><span class="mjx-base"><span id="MJXc-Node-2481" class="mjx-mi"><span class="mjx-char MJXc-TeX-math-I" style="padding-top: 0.471em; padding-bottom: 0.263em;">l</span></span></span><span class="mjx-sup" style="font-size: 70.7%; vertical-align: 0.513em; padding-left: 0px; padding-right: 0.071em;"><span id="MJXc-Node-2482" class="mjx-texatom" style=""><span id="MJXc-Node-2483" class="mjx-mrow"><span id="MJXc-Node-2484" class="mjx-mtext"><span class="mjx-char MJXc-TeX-main-R" style="padding-top: 0.419em; padding-bottom: 0.367em;">th</span></span></span></span></span></span></span></span><span class="MJX_Assistive_MathML" role="presentation"><math xmlns="http://www.w3.org/1998/Math/MathML"><msup><mi>l</mi><mrow class="MJX-TeXAtom-ORD"><mtext>th</mtext></mrow></msup></math></span></span><script type="math/tex" id="MathJax-Element-120">l^{\text{th}}</script></span><span> GNN layer, and </span><span class="mathjax"><span class="MathJax_Preview" style="color: inherit;"></span><span id="MathJax-Element-121-Frame" class="mjx-chtml MathJax_CHTML" tabindex="0" style="font-size: 120%; position: relative;" data-mathml="<math xmlns=&quot;http://www.w3.org/1998/Math/MathML&quot;><msubsup><mrow class=&quot;MJX-TeXAtom-ORD&quot;><mi mathvariant=&quot;bold&quot;>H</mi></mrow><mi>i</mi><mrow class=&quot;MJX-TeXAtom-ORD&quot;><mo stretchy=&quot;false&quot;>(</mo><mi>l</mi><mo>&amp;#x2212;</mo><mn>1</mn><mo stretchy=&quot;false&quot;>)</mo></mrow></msubsup><mo>=</mo><mo fence=&quot;false&quot; stretchy=&quot;false&quot;>{</mo><msubsup><mrow class=&quot;MJX-TeXAtom-ORD&quot;><mi mathvariant=&quot;bold&quot;>h</mi></mrow><mn>1</mn><mrow class=&quot;MJX-TeXAtom-ORD&quot;><mo stretchy=&quot;false&quot;>(</mo><mi>l</mi><mo>&amp;#x2212;</mo><mn>1</mn><mo stretchy=&quot;false&quot;>)</mo></mrow></msubsup><mo>,</mo><msubsup><mrow class=&quot;MJX-TeXAtom-ORD&quot;><mi mathvariant=&quot;bold&quot;>h</mi></mrow><mn>2</mn><mrow class=&quot;MJX-TeXAtom-ORD&quot;><mo stretchy=&quot;false&quot;>(</mo><mi>l</mi><mo>&amp;#x2212;</mo><mn>1</mn><mo stretchy=&quot;false&quot;>)</mo></mrow></msubsup><mo>,</mo><mo>&amp;#x22EF;</mo><mo>,</mo><msubsup><mrow class=&quot;MJX-TeXAtom-ORD&quot;><mi mathvariant=&quot;bold&quot;>h</mi></mrow><mi>n</mi><mrow class=&quot;MJX-TeXAtom-ORD&quot;><mo stretchy=&quot;false&quot;>(</mo><mi>l</mi><mo>&amp;#x2212;</mo><mn>1</mn><mo stretchy=&quot;false&quot;>)</mo></mrow></msubsup><mo fence=&quot;false&quot; stretchy=&quot;false&quot;>}</mo></math>" role="presentation"><span id="MJXc-Node-2485" class="mjx-math" aria-hidden="true"><span id="MJXc-Node-2486" class="mjx-mrow"><span id="MJXc-Node-2487" class="mjx-msubsup"><span class="mjx-base"><span id="MJXc-Node-2488" class="mjx-texatom"><span id="MJXc-Node-2489" class="mjx-mrow"><span id="MJXc-Node-2490" class="mjx-mi"><span class="mjx-char MJXc-TeX-main-B" style="padding-top: 0.367em; padding-bottom: 0.367em;">H</span></span></span></span></span><span class="mjx-stack" style="vertical-align: -0.311em;"><span class="mjx-sup" style="font-size: 70.7%; padding-bottom: 0.255em; padding-left: 0px; padding-right: 0.071em;"><span id="MJXc-Node-2492" class="mjx-texatom" style=""><span id="MJXc-Node-2493" class="mjx-mrow"><span id="MJXc-Node-2494" class="mjx-mo"><span class="mjx-char MJXc-TeX-main-R" style="padding-top: 0.471em; padding-bottom: 0.576em;">(</span></span><span id="MJXc-Node-2495" class="mjx-mi"><span class="mjx-char MJXc-TeX-math-I" style="padding-top: 0.471em; padding-bottom: 0.263em;">l</span></span><span id="MJXc-Node-2496" class="mjx-mo"><span class="mjx-char MJXc-TeX-main-R" style="padding-top: 0.315em; padding-bottom: 0.419em;">−</span></span><span id="MJXc-Node-2497" class="mjx-mn"><span class="mjx-char MJXc-TeX-main-R" style="padding-top: 0.367em; padding-bottom: 0.367em;">1</span></span><span id="MJXc-Node-2498" class="mjx-mo"><span class="mjx-char MJXc-TeX-main-R" style="padding-top: 0.471em; padding-bottom: 0.576em;">)</span></span></span></span></span><span class="mjx-sub" style="font-size: 70.7%; padding-right: 0.071em;"><span id="MJXc-Node-2491" class="mjx-mi" style=""><span class="mjx-char MJXc-TeX-math-I" style="padding-top: 0.419em; padding-bottom: 0.263em;">i</span></span></span></span></span><span id="MJXc-Node-2499" class="mjx-mo MJXc-space3"><span class="mjx-char MJXc-TeX-main-R" style="padding-top: 0.055em; padding-bottom: 0.315em;">=</span></span><span id="MJXc-Node-2500" class="mjx-mo MJXc-space3"><span class="mjx-char MJXc-TeX-main-R" style="padding-top: 0.471em; padding-bottom: 0.576em;">{</span></span><span id="MJXc-Node-2501" class="mjx-msubsup"><span class="mjx-base"><span id="MJXc-Node-2502" class="mjx-texatom"><span id="MJXc-Node-2503" class="mjx-mrow"><span id="MJXc-Node-2504" class="mjx-mi"><span class="mjx-char MJXc-TeX-main-B" style="padding-top: 0.367em; padding-bottom: 0.367em;">h</span></span></span></span></span><span class="mjx-stack" style="vertical-align: -0.315em;"><span class="mjx-sup" style="font-size: 70.7%; padding-bottom: 0.255em; padding-left: 0px; padding-right: 0.071em;"><span id="MJXc-Node-2506" class="mjx-texatom" style=""><span id="MJXc-Node-2507" class="mjx-mrow"><span id="MJXc-Node-2508" class="mjx-mo"><span class="mjx-char MJXc-TeX-main-R" style="padding-top: 0.471em; padding-bottom: 0.576em;">(</span></span><span id="MJXc-Node-2509" class="mjx-mi"><span class="mjx-char MJXc-TeX-math-I" style="padding-top: 0.471em; padding-bottom: 0.263em;">l</span></span><span id="MJXc-Node-2510" class="mjx-mo"><span class="mjx-char MJXc-TeX-main-R" style="padding-top: 0.315em; padding-bottom: 0.419em;">−</span></span><span id="MJXc-Node-2511" class="mjx-mn"><span class="mjx-char MJXc-TeX-main-R" style="padding-top: 0.367em; padding-bottom: 0.367em;">1</span></span><span id="MJXc-Node-2512" class="mjx-mo"><span class="mjx-char MJXc-TeX-main-R" style="padding-top: 0.471em; padding-bottom: 0.576em;">)</span></span></span></span></span><span class="mjx-sub" style="font-size: 70.7%; padding-right: 0.071em;"><span id="MJXc-Node-2505" class="mjx-mn" style=""><span class="mjx-char MJXc-TeX-main-R" style="padding-top: 0.367em; padding-bottom: 0.367em;">1</span></span></span></span></span><span id="MJXc-Node-2513" class="mjx-mo"><span class="mjx-char MJXc-TeX-main-R" style="margin-top: -0.154em; padding-bottom: 0.523em;">,</span></span><span id="MJXc-Node-2514" class="mjx-msubsup MJXc-space1"><span class="mjx-base"><span id="MJXc-Node-2515" class="mjx-texatom"><span id="MJXc-Node-2516" class="mjx-mrow"><span id="MJXc-Node-2517" class="mjx-mi"><span class="mjx-char MJXc-TeX-main-B" style="padding-top: 0.367em; padding-bottom: 0.367em;">h</span></span></span></span></span><span class="mjx-stack" style="vertical-align: -0.315em;"><span class="mjx-sup" style="font-size: 70.7%; padding-bottom: 0.255em; padding-left: 0px; padding-right: 0.071em;"><span id="MJXc-Node-2519" class="mjx-texatom" style=""><span id="MJXc-Node-2520" class="mjx-mrow"><span id="MJXc-Node-2521" class="mjx-mo"><span class="mjx-char MJXc-TeX-main-R" style="padding-top: 0.471em; padding-bottom: 0.576em;">(</span></span><span id="MJXc-Node-2522" class="mjx-mi"><span class="mjx-char MJXc-TeX-math-I" style="padding-top: 0.471em; padding-bottom: 0.263em;">l</span></span><span id="MJXc-Node-2523" class="mjx-mo"><span class="mjx-char MJXc-TeX-main-R" style="padding-top: 0.315em; padding-bottom: 0.419em;">−</span></span><span id="MJXc-Node-2524" class="mjx-mn"><span class="mjx-char MJXc-TeX-main-R" style="padding-top: 0.367em; padding-bottom: 0.367em;">1</span></span><span id="MJXc-Node-2525" class="mjx-mo"><span class="mjx-char MJXc-TeX-main-R" style="padding-top: 0.471em; padding-bottom: 0.576em;">)</span></span></span></span></span><span class="mjx-sub" style="font-size: 70.7%; padding-right: 0.071em;"><span id="MJXc-Node-2518" class="mjx-mn" style=""><span class="mjx-char MJXc-TeX-main-R" style="padding-top: 0.367em; padding-bottom: 0.367em;">2</span></span></span></span></span><span id="MJXc-Node-2526" class="mjx-mo"><span class="mjx-char MJXc-TeX-main-R" style="margin-top: -0.154em; padding-bottom: 0.523em;">,</span></span><span id="MJXc-Node-2527" class="mjx-mo MJXc-space1"><span class="mjx-char MJXc-TeX-main-R" style="padding-top: 0.003em; padding-bottom: 0.315em;">⋯</span></span><span id="MJXc-Node-2528" class="mjx-mo MJXc-space1"><span class="mjx-char MJXc-TeX-main-R" style="margin-top: -0.154em; padding-bottom: 0.523em;">,</span></span><span id="MJXc-Node-2529" class="mjx-msubsup MJXc-space1"><span class="mjx-base"><span id="MJXc-Node-2530" class="mjx-texatom"><span id="MJXc-Node-2531" class="mjx-mrow"><span id="MJXc-Node-2532" class="mjx-mi"><span class="mjx-char MJXc-TeX-main-B" style="padding-top: 0.367em; padding-bottom: 0.367em;">h</span></span></span></span></span><span class="mjx-stack" style="vertical-align: -0.157em;"><span class="mjx-sup" style="font-size: 70.7%; padding-bottom: 0.255em; padding-left: 0px; padding-right: 0.071em;"><span id="MJXc-Node-2534" class="mjx-texatom" style=""><span id="MJXc-Node-2535" class="mjx-mrow"><span id="MJXc-Node-2536" class="mjx-mo"><span class="mjx-char MJXc-TeX-main-R" style="padding-top: 0.471em; padding-bottom: 0.576em;">(</span></span><span id="MJXc-Node-2537" class="mjx-mi"><span class="mjx-char MJXc-TeX-math-I" style="padding-top: 0.471em; padding-bottom: 0.263em;">l</span></span><span id="MJXc-Node-2538" class="mjx-mo"><span class="mjx-char MJXc-TeX-main-R" style="padding-top: 0.315em; padding-bottom: 0.419em;">−</span></span><span id="MJXc-Node-2539" class="mjx-mn"><span class="mjx-char MJXc-TeX-main-R" style="padding-top: 0.367em; padding-bottom: 0.367em;">1</span></span><span id="MJXc-Node-2540" class="mjx-mo"><span class="mjx-char MJXc-TeX-main-R" style="padding-top: 0.471em; padding-bottom: 0.576em;">)</span></span></span></span></span><span class="mjx-sub" style="font-size: 70.7%; padding-right: 0.071em;"><span id="MJXc-Node-2533" class="mjx-mi" style=""><span class="mjx-char MJXc-TeX-math-I" style="padding-top: 0.211em; padding-bottom: 0.263em;">n</span></span></span></span></span><span id="MJXc-Node-2541" class="mjx-mo"><span class="mjx-char MJXc-TeX-main-R" style="padding-top: 0.471em; padding-bottom: 0.576em;">}</span></span></span></span><span class="MJX_Assistive_MathML" role="presentation"><math xmlns="http://www.w3.org/1998/Math/MathML"><msubsup><mrow class="MJX-TeXAtom-ORD"><mi mathvariant="bold">H</mi></mrow><mi>i</mi><mrow class="MJX-TeXAtom-ORD"><mo stretchy="false">(</mo><mi>l</mi><mo>−</mo><mn>1</mn><mo stretchy="false">)</mo></mrow></msubsup><mo>=</mo><mo fence="false" stretchy="false">{</mo><msubsup><mrow class="MJX-TeXAtom-ORD"><mi mathvariant="bold">h</mi></mrow><mn>1</mn><mrow class="MJX-TeXAtom-ORD"><mo stretchy="false">(</mo><mi>l</mi><mo>−</mo><mn>1</mn><mo stretchy="false">)</mo></mrow></msubsup><mo>,</mo><msubsup><mrow class="MJX-TeXAtom-ORD"><mi mathvariant="bold">h</mi></mrow><mn>2</mn><mrow class="MJX-TeXAtom-ORD"><mo stretchy="false">(</mo><mi>l</mi><mo>−</mo><mn>1</mn><mo stretchy="false">)</mo></mrow></msubsup><mo>,</mo><mo>⋯</mo><mo>,</mo><msubsup><mrow class="MJX-TeXAtom-ORD"><mi mathvariant="bold">h</mi></mrow><mi>n</mi><mrow class="MJX-TeXAtom-ORD"><mo stretchy="false">(</mo><mi>l</mi><mo>−</mo><mn>1</mn><mo stretchy="false">)</mo></mrow></msubsup><mo fence="false" stretchy="false">}</mo></math></span></span><script type="math/tex" id="MathJax-Element-121">\mathbf{H}_i^{(l-1)} = \{\mathbf{h}^{(l−1)}_1,\mathbf{h}^{(l−1)}_2,\cdots,\mathbf{h}^{(l−1)}_n \}</script></span><span> to denote the input embeddings at the </span><span class="mathjax"><span class="MathJax_Preview" style="color: inherit;"></span><span id="MathJax-Element-122-Frame" class="mjx-chtml MathJax_CHTML" tabindex="0" style="font-size: 120%; position: relative;" data-mathml="<math xmlns=&quot;http://www.w3.org/1998/Math/MathML&quot;><mo stretchy=&quot;false&quot;>(</mo><mi>l</mi><mo>&amp;#x2212;</mo><mn>1</mn><msup><mo stretchy=&quot;false&quot;>)</mo><mrow class=&quot;MJX-TeXAtom-ORD&quot;><mtext>th</mtext></mrow></msup></math>" role="presentation"><span id="MJXc-Node-2542" class="mjx-math" aria-hidden="true"><span id="MJXc-Node-2543" class="mjx-mrow"><span id="MJXc-Node-2544" class="mjx-mo"><span class="mjx-char MJXc-TeX-main-R" style="padding-top: 0.471em; padding-bottom: 0.576em;">(</span></span><span id="MJXc-Node-2545" class="mjx-mi"><span class="mjx-char MJXc-TeX-math-I" style="padding-top: 0.471em; padding-bottom: 0.263em;">l</span></span><span id="MJXc-Node-2546" class="mjx-mo MJXc-space2"><span class="mjx-char MJXc-TeX-main-R" style="padding-top: 0.315em; padding-bottom: 0.419em;">−</span></span><span id="MJXc-Node-2547" class="mjx-mn MJXc-space2"><span class="mjx-char MJXc-TeX-main-R" style="padding-top: 0.367em; padding-bottom: 0.367em;">1</span></span><span id="MJXc-Node-2548" class="mjx-msubsup"><span class="mjx-base"><span id="MJXc-Node-2549" class="mjx-mo"><span class="mjx-char MJXc-TeX-main-R" style="padding-top: 0.471em; padding-bottom: 0.576em;">)</span></span></span><span class="mjx-sup" style="font-size: 70.7%; vertical-align: 0.513em; padding-left: 0px; padding-right: 0.071em;"><span id="MJXc-Node-2550" class="mjx-texatom" style=""><span id="MJXc-Node-2551" class="mjx-mrow"><span id="MJXc-Node-2552" class="mjx-mtext"><span class="mjx-char MJXc-TeX-main-R" style="padding-top: 0.419em; padding-bottom: 0.367em;">th</span></span></span></span></span></span></span></span><span class="MJX_Assistive_MathML" role="presentation"><math xmlns="http://www.w3.org/1998/Math/MathML"><mo stretchy="false">(</mo><mi>l</mi><mo>−</mo><mn>1</mn><msup><mo stretchy="false">)</mo><mrow class="MJX-TeXAtom-ORD"><mtext>th</mtext></mrow></msup></math></span></span><script type="math/tex" id="MathJax-Element-122">(l-1)^{\text{th}}</script></span><span> GNN layer.</span></p><p><span>GNNs 1) learn node embeddings for each node in the graph and 2) aggregate the node embeddings to produce the graph embeddings.</span></p><ul>
+<li><strong><span>Graph filtering</span></strong><span> learns new node embeddings given input node embeddings and graph structure, without changing the graph structure;</span><br>
+<span class="mathjax"><span class="MathJax_Preview" style="color: inherit;"></span><span class="mjx-chtml MJXc-display" style="text-align: center;"><span id="MathJax-Element-159-Frame" class="mjx-chtml MathJax_CHTML" tabindex="0" style="font-size: 120%; text-align: center; position: relative;" data-mathml="<math xmlns=&quot;http://www.w3.org/1998/Math/MathML&quot; display=&quot;block&quot;><msubsup><mrow class=&quot;MJX-TeXAtom-ORD&quot;><mi mathvariant=&quot;bold&quot;>h</mi></mrow><mi>i</mi><mrow class=&quot;MJX-TeXAtom-ORD&quot;><mo stretchy=&quot;false&quot;>(</mo><mi>l</mi><mo stretchy=&quot;false&quot;>)</mo></mrow></msubsup><mo>=</mo><msub><mi>f</mi><mrow class=&quot;MJX-TeXAtom-ORD&quot;><mi>f</mi><mi>i</mi><mi>l</mi><mi>t</mi><mi>e</mi><mi>r</mi></mrow></msub><mo stretchy=&quot;false&quot;>(</mo><mi>A</mi><mo>,</mo><msup><mrow class=&quot;MJX-TeXAtom-ORD&quot;><mi mathvariant=&quot;bold&quot;>H</mi></mrow><mrow class=&quot;MJX-TeXAtom-ORD&quot;><mo stretchy=&quot;false&quot;>(</mo><mi>l</mi><mo>&amp;#x2212;</mo><mn>1</mn><mo stretchy=&quot;false&quot;>)</mo></mrow></msup><mo stretchy=&quot;false&quot;>)</mo></math>" role="presentation"><span id="MJXc-Node-2945" class="mjx-math" aria-hidden="true"><span id="MJXc-Node-2946" class="mjx-mrow"><span id="MJXc-Node-2947" class="mjx-msubsup"><span class="mjx-base"><span id="MJXc-Node-2948" class="mjx-texatom"><span id="MJXc-Node-2949" class="mjx-mrow"><span id="MJXc-Node-2950" class="mjx-mi"><span class="mjx-char MJXc-TeX-main-B" style="padding-top: 0.367em; padding-bottom: 0.367em;">h</span></span></span></span></span><span class="mjx-stack" style="vertical-align: -0.311em;"><span class="mjx-sup" style="font-size: 70.7%; padding-bottom: 0.255em; padding-left: 0px; padding-right: 0.071em;"><span id="MJXc-Node-2952" class="mjx-texatom" style=""><span id="MJXc-Node-2953" class="mjx-mrow"><span id="MJXc-Node-2954" class="mjx-mo"><span class="mjx-char MJXc-TeX-main-R" style="padding-top: 0.471em; padding-bottom: 0.576em;">(</span></span><span id="MJXc-Node-2955" class="mjx-mi"><span class="mjx-char MJXc-TeX-math-I" style="padding-top: 0.471em; padding-bottom: 0.263em;">l</span></span><span id="MJXc-Node-2956" class="mjx-mo"><span class="mjx-char MJXc-TeX-main-R" style="padding-top: 0.471em; padding-bottom: 0.576em;">)</span></span></span></span></span><span class="mjx-sub" style="font-size: 70.7%; padding-right: 0.071em;"><span id="MJXc-Node-2951" class="mjx-mi" style=""><span class="mjx-char MJXc-TeX-math-I" style="padding-top: 0.419em; padding-bottom: 0.263em;">i</span></span></span></span></span><span id="MJXc-Node-2957" class="mjx-mo MJXc-space3"><span class="mjx-char MJXc-TeX-main-R" style="padding-top: 0.055em; padding-bottom: 0.315em;">=</span></span><span id="MJXc-Node-2958" class="mjx-msubsup MJXc-space3"><span class="mjx-base" style="margin-right: -0.06em;"><span id="MJXc-Node-2959" class="mjx-mi"><span class="mjx-char MJXc-TeX-math-I" style="padding-top: 0.471em; padding-bottom: 0.471em; padding-right: 0.06em;">f</span></span></span><span class="mjx-sub" style="font-size: 70.7%; vertical-align: -0.23em; padding-right: 0.071em;"><span id="MJXc-Node-2960" class="mjx-texatom" style=""><span id="MJXc-Node-2961" class="mjx-mrow"><span id="MJXc-Node-2962" class="mjx-mi"><span class="mjx-char MJXc-TeX-math-I" style="padding-top: 0.471em; padding-bottom: 0.471em; padding-right: 0.06em;">f</span></span><span id="MJXc-Node-2963" class="mjx-mi"><span class="mjx-char MJXc-TeX-math-I" style="padding-top: 0.419em; padding-bottom: 0.263em;">i</span></span><span id="MJXc-Node-2964" class="mjx-mi"><span class="mjx-char MJXc-TeX-math-I" style="padding-top: 0.471em; padding-bottom: 0.263em;">l</span></span><span id="MJXc-Node-2965" class="mjx-mi"><span class="mjx-char MJXc-TeX-math-I" style="padding-top: 0.419em; padding-bottom: 0.263em;">t</span></span><span id="MJXc-Node-2966" class="mjx-mi"><span class="mjx-char MJXc-TeX-math-I" style="padding-top: 0.211em; padding-bottom: 0.263em;">e</span></span><span id="MJXc-Node-2967" class="mjx-mi"><span class="mjx-char MJXc-TeX-math-I" style="padding-top: 0.211em; padding-bottom: 0.263em;">r</span></span></span></span></span></span><span id="MJXc-Node-2968" class="mjx-mo"><span class="mjx-char MJXc-TeX-main-R" style="padding-top: 0.471em; padding-bottom: 0.576em;">(</span></span><span id="MJXc-Node-2969" class="mjx-mi"><span class="mjx-char MJXc-TeX-math-I" style="padding-top: 0.471em; padding-bottom: 0.263em;">A</span></span><span id="MJXc-Node-2970" class="mjx-mo"><span class="mjx-char MJXc-TeX-main-R" style="margin-top: -0.154em; padding-bottom: 0.523em;">,</span></span><span id="MJXc-Node-2971" class="mjx-msubsup MJXc-space1"><span class="mjx-base"><span id="MJXc-Node-2972" class="mjx-texatom"><span id="MJXc-Node-2973" class="mjx-mrow"><span id="MJXc-Node-2974" class="mjx-mi"><span class="mjx-char MJXc-TeX-main-B" style="padding-top: 0.367em; padding-bottom: 0.367em;">H</span></span></span></span></span><span class="mjx-sup" style="font-size: 70.7%; vertical-align: 0.619em; padding-left: 0px; padding-right: 0.071em;"><span id="MJXc-Node-2975" class="mjx-texatom" style=""><span id="MJXc-Node-2976" class="mjx-mrow"><span id="MJXc-Node-2977" class="mjx-mo"><span class="mjx-char MJXc-TeX-main-R" style="padding-top: 0.471em; padding-bottom: 0.576em;">(</span></span><span id="MJXc-Node-2978" class="mjx-mi"><span class="mjx-char MJXc-TeX-math-I" style="padding-top: 0.471em; padding-bottom: 0.263em;">l</span></span><span id="MJXc-Node-2979" class="mjx-mo"><span class="mjx-char MJXc-TeX-main-R" style="padding-top: 0.315em; padding-bottom: 0.419em;">−</span></span><span id="MJXc-Node-2980" class="mjx-mn"><span class="mjx-char MJXc-TeX-main-R" style="padding-top: 0.367em; padding-bottom: 0.367em;">1</span></span><span id="MJXc-Node-2981" class="mjx-mo"><span class="mjx-char MJXc-TeX-main-R" style="padding-top: 0.471em; padding-bottom: 0.576em;">)</span></span></span></span></span></span><span id="MJXc-Node-2982" class="mjx-mo"><span class="mjx-char MJXc-TeX-main-R" style="padding-top: 0.471em; padding-bottom: 0.576em;">)</span></span></span></span><span class="MJX_Assistive_MathML MJX_Assistive_MathML_Block" role="presentation"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><msubsup><mrow class="MJX-TeXAtom-ORD"><mi mathvariant="bold">h</mi></mrow><mi>i</mi><mrow class="MJX-TeXAtom-ORD"><mo stretchy="false">(</mo><mi>l</mi><mo stretchy="false">)</mo></mrow></msubsup><mo>=</mo><msub><mi>f</mi><mrow class="MJX-TeXAtom-ORD"><mi>f</mi><mi>i</mi><mi>l</mi><mi>t</mi><mi>e</mi><mi>r</mi></mrow></msub><mo stretchy="false">(</mo><mi>A</mi><mo>,</mo><msup><mrow class="MJX-TeXAtom-ORD"><mi mathvariant="bold">H</mi></mrow><mrow class="MJX-TeXAtom-ORD"><mo stretchy="false">(</mo><mi>l</mi><mo>−</mo><mn>1</mn><mo stretchy="false">)</mo></mrow></msup><mo stretchy="false">)</mo></math></span></span></span><script type="math/tex; mode=display" id="MathJax-Element-159">\mathbf{h}_i^{(l)} = f_{filter}(A, \mathbf{H}^{(l−1)})</script></span><br>
+<img src="https://i.imgur.com/1O2t5L3.png" alt="Graph filtering: layers of convolutions and ReLU generate the latent representation for each node" loading="lazy"></li>
+<li><strong><span>Graph pooling</span></strong><span> takes a graph and its node embeddings as inputs and then generates a smaller graph with fewer nodes and its corresponding new node embeddings.</span><br>
+<span class="mathjax"><span class="MathJax_Preview" style="color: inherit;"></span><span class="mjx-chtml MJXc-display" style="text-align: center;"><span id="MathJax-Element-160-Frame" class="mjx-chtml MathJax_CHTML" tabindex="0" style="font-size: 120%; text-align: center; position: relative;" data-mathml="<math xmlns=&quot;http://www.w3.org/1998/Math/MathML&quot; display=&quot;block&quot;><msup><mi>A</mi><mo>&amp;#x2032;</mo></msup><mo>,</mo><msup><mrow class=&quot;MJX-TeXAtom-ORD&quot;><mi mathvariant=&quot;bold&quot;>H</mi></mrow><mo>&amp;#x2032;</mo></msup><mo>=</mo><msub><mi>f</mi><mrow class=&quot;MJX-TeXAtom-ORD&quot;><mi>p</mi><mi>o</mi><mi>o</mi><mi>l</mi></mrow></msub><mo stretchy=&quot;false&quot;>(</mo><mi>A</mi><mo>,</mo><mrow class=&quot;MJX-TeXAtom-ORD&quot;><mi mathvariant=&quot;bold&quot;>H</mi></mrow><mo stretchy=&quot;false&quot;>)</mo></math>" role="presentation"><span id="MJXc-Node-2983" class="mjx-math" aria-hidden="true"><span id="MJXc-Node-2984" class="mjx-mrow"><span id="MJXc-Node-2985" class="mjx-msup"><span class="mjx-base"><span id="MJXc-Node-2986" class="mjx-mi"><span class="mjx-char MJXc-TeX-math-I" style="padding-top: 0.471em; padding-bottom: 0.263em;">A</span></span></span><span class="mjx-sup" style="font-size: 70.7%; vertical-align: 0.584em; padding-left: 0px; padding-right: 0.071em;"><span id="MJXc-Node-2987" class="mjx-mo" style=""><span class="mjx-char MJXc-TeX-main-R" style="padding-top: 0.263em; padding-bottom: 0.315em;">′</span></span></span></span><span id="MJXc-Node-2988" class="mjx-mo"><span class="mjx-char MJXc-TeX-main-R" style="margin-top: -0.154em; padding-bottom: 0.523em;">,</span></span><span id="MJXc-Node-2989" class="mjx-msup MJXc-space1"><span class="mjx-base"><span id="MJXc-Node-2990" class="mjx-texatom"><span id="MJXc-Node-2991" class="mjx-mrow"><span id="MJXc-Node-2992" class="mjx-mi"><span class="mjx-char MJXc-TeX-main-B" style="padding-top: 0.367em; padding-bottom: 0.367em;">H</span></span></span></span></span><span class="mjx-sup" style="font-size: 70.7%; vertical-align: 0.619em; padding-left: 0px; padding-right: 0.071em;"><span id="MJXc-Node-2993" class="mjx-mo" style=""><span class="mjx-char MJXc-TeX-main-R" style="padding-top: 0.263em; padding-bottom: 0.315em;">′</span></span></span></span><span id="MJXc-Node-2994" class="mjx-mo MJXc-space3"><span class="mjx-char MJXc-TeX-main-R" style="padding-top: 0.055em; padding-bottom: 0.315em;">=</span></span><span id="MJXc-Node-2995" class="mjx-msubsup MJXc-space3"><span class="mjx-base" style="margin-right: -0.06em;"><span id="MJXc-Node-2996" class="mjx-mi"><span class="mjx-char MJXc-TeX-math-I" style="padding-top: 0.471em; padding-bottom: 0.471em; padding-right: 0.06em;">f</span></span></span><span class="mjx-sub" style="font-size: 70.7%; vertical-align: -0.219em; padding-right: 0.071em;"><span id="MJXc-Node-2997" class="mjx-texatom" style=""><span id="MJXc-Node-2998" class="mjx-mrow"><span id="MJXc-Node-2999" class="mjx-mi"><span class="mjx-char MJXc-TeX-math-I" style="padding-top: 0.211em; padding-bottom: 0.471em;">p</span></span><span id="MJXc-Node-3000" class="mjx-mi"><span class="mjx-char MJXc-TeX-math-I" style="padding-top: 0.211em; padding-bottom: 0.263em;">o</span></span><span id="MJXc-Node-3001" class="mjx-mi"><span class="mjx-char MJXc-TeX-math-I" style="padding-top: 0.211em; padding-bottom: 0.263em;">o</span></span><span id="MJXc-Node-3002" class="mjx-mi"><span class="mjx-char MJXc-TeX-math-I" style="padding-top: 0.471em; padding-bottom: 0.263em;">l</span></span></span></span></span></span><span id="MJXc-Node-3003" class="mjx-mo"><span class="mjx-char MJXc-TeX-main-R" style="padding-top: 0.471em; padding-bottom: 0.576em;">(</span></span><span id="MJXc-Node-3004" class="mjx-mi"><span class="mjx-char MJXc-TeX-math-I" style="padding-top: 0.471em; padding-bottom: 0.263em;">A</span></span><span id="MJXc-Node-3005" class="mjx-mo"><span class="mjx-char MJXc-TeX-main-R" style="margin-top: -0.154em; padding-bottom: 0.523em;">,</span></span><span id="MJXc-Node-3006" class="mjx-texatom MJXc-space1"><span id="MJXc-Node-3007" class="mjx-mrow"><span id="MJXc-Node-3008" class="mjx-mi"><span class="mjx-char MJXc-TeX-main-B" style="padding-top: 0.367em; padding-bottom: 0.367em;">H</span></span></span></span><span id="MJXc-Node-3009" class="mjx-mo"><span class="mjx-char MJXc-TeX-main-R" style="padding-top: 0.471em; padding-bottom: 0.576em;">)</span></span></span></span><span class="MJX_Assistive_MathML MJX_Assistive_MathML_Block" role="presentation"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><msup><mi>A</mi><mo>′</mo></msup><mo>,</mo><msup><mrow class="MJX-TeXAtom-ORD"><mi mathvariant="bold">H</mi></mrow><mo>′</mo></msup><mo>=</mo><msub><mi>f</mi><mrow class="MJX-TeXAtom-ORD"><mi>p</mi><mi>o</mi><mi>o</mi><mi>l</mi></mrow></msub><mo stretchy="false">(</mo><mi>A</mi><mo>,</mo><mrow class="MJX-TeXAtom-ORD"><mi mathvariant="bold">H</mi></mrow><mo stretchy="false">)</mo></math></span></span></span><script type="math/tex; mode=display" id="MathJax-Element-160">A', \mathbf{H}' = f_{pool}(A, \mathbf{H})</script></span><br>
+<img src="https://i.imgur.com/Z89QbWb.png" alt="Graph pooling: pooling can be applied to generate a coarser graph which can be further reduced with a readout operation" loading="lazy"></li>
+</ul><h4 id="Graph-Filtering" data-id="Graph-Filtering"><a class="anchor hidden-xs" href="#Graph-Filtering" title="Graph-Filtering"><span class="octicon octicon-link"></span></a><span>Graph Filtering</span></h4><ul>
+<li><strong><span>Spectral-based Graph Filters</span></strong>
+<ul>
+<li><span>Based on spectral graph theory, </span><em><span>i.e.</span></em><span> properties of a graph in relationship to the characteristic polynomial, eigenvalues, and eigenvectors of matrices associated with the graph, such as its adjacency matrix </span><span class="mathjax"><span class="MathJax_Preview" style="color: inherit;"></span><span id="MathJax-Element-163-Frame" class="mjx-chtml MathJax_CHTML" tabindex="0" style="font-size: 120%; position: relative;" data-mathml="<math xmlns=&quot;http://www.w3.org/1998/Math/MathML&quot;><mi>A</mi></math>" role="presentation"><span id="MJXc-Node-3016" class="mjx-math" aria-hidden="true"><span id="MJXc-Node-3017" class="mjx-mrow"><span id="MJXc-Node-3018" class="mjx-mi"><span class="mjx-char MJXc-TeX-math-I" style="padding-top: 0.471em; padding-bottom: 0.263em;">A</span></span></span></span><span class="MJX_Assistive_MathML" role="presentation"><math xmlns="http://www.w3.org/1998/Math/MathML"><mi>A</mi></math></span></span><script type="math/tex" id="MathJax-Element-163">A</script></span><span> or Laplacian matrix </span><span class="mathjax"><span class="MathJax_Preview" style="color: inherit;"></span><span id="MathJax-Element-164-Frame" class="mjx-chtml MathJax_CHTML" tabindex="0" style="font-size: 120%; position: relative;" data-mathml="<math xmlns=&quot;http://www.w3.org/1998/Math/MathML&quot;><mi>L</mi></math>" role="presentation"><span id="MJXc-Node-3019" class="mjx-math" aria-hidden="true"><span id="MJXc-Node-3020" class="mjx-mrow"><span id="MJXc-Node-3021" class="mjx-mi"><span class="mjx-char MJXc-TeX-math-I" style="padding-top: 0.471em; padding-bottom: 0.263em;">L</span></span></span></span><span class="MJX_Assistive_MathML" role="presentation"><math xmlns="http://www.w3.org/1998/Math/MathML"><mi>L</mi></math></span></span><script type="math/tex" id="MathJax-Element-164">L</script></span><span>.</span></li>
+<li><span>Examples:</span>
+<ul>
+<li><span>ChebNet</span></li>
+</ul>
+<blockquote>
+<p><strong><span>Convolutional Neural Networks on Graphs with Fast Localized Spectral Filtering</span></strong><br>
+<em><span>Michaël Defferrard, Xavier Bresson, Pierre Vandergheynst</span></em><br>
+<span>NIPS, 2016.</span><br>
+<span>[</span><a href="https://arxiv.org/abs/1606.09375" target="_blank" rel="noopener"><span>Paper]</span></a></p>
+</blockquote>
+<ul>
+<li><span>Graph Convolutional Networks (GCN)</span></li>
+</ul>
+<blockquote>
+<p><strong><span>Semi-Supervised Classification with Graph Convolutional Networks</span></strong><br>
+<em><span>Thomas N. Kipf, Max Welling</span></em><br>
+<span>ICLR, 2017.</span><br>
+<span>[</span><a href="https://arxiv.org/abs/1609.02907" target="_blank" rel="noopener"><span>Paper]</span></a></p>
+</blockquote>
+</li>
+</ul>
+</li>
+<li><strong><span>Spatial-based Graph Filters</span></strong>
+<ul>
+<li><span>Message passing based on a node’s spatial relations. Models depend on different aggregators to gather information from each node’s neighbors.</span></li>
+<li><span>Examples:</span>
+<ul>
+<li><span>Message Passing Neural Network (MPNN)</span></li>
+</ul>
+<blockquote>
+<p><strong><span>Neural Message Passing for Quantum Chemistry</span></strong><br>
+<em><span>Justin Gilmer, Samuel S. Schoenholz, Patrick F. Riley, Oriol Vinyals, George E. Dahl</span></em><br>
+<span>ICML, 2017.</span><br>
+<span>[</span><a href="https://arxiv.org/abs/1704.01212" target="_blank" rel="noopener"><span>Paper]</span></a></p>
+</blockquote>
+<ul>
+<li><span>GraphSage</span></li>
+</ul>
+<blockquote>
+<p><strong><span>Inductive Representation Learning on Large Graphs</span></strong><br>
+<em><span>William L. Hamilton, Rex Ying, Jure Leskovec</span></em><br>
+<span>NLPS, 2017.</span><br>
+<span>[</span><a href="https://arxiv.org/abs/1706.02216" target="_blank" rel="noopener"><span>Paper]</span></a></p>
+</blockquote>
+</li>
+</ul>
+</li>
+<li><strong><span>Attention-based Graph Filters</span></strong>
+<ul>
+<li><span>Based on the Multi-head Attention mechanism to dynamically learn the attention scores on the edges when performing message passing.</span></li>
+<li><span>Examples:</span>
+<ul>
+<li><span>Graph Attention Network (GAT)</span></li>
+</ul>
+<blockquote>
+<p><strong><span>SGraph Attention Networks</span></strong><br>
+<em><span>Petar Veličković, Guillem Cucurull, Arantxa Casanova, Adriana Romero, Pietro Liò, Yoshua Bengio</span></em><br>
+<span>ICLR, 2018.</span><br>
+<span>[</span><a href="https://arxiv.org/abs/1710.10903" target="_blank" rel="noopener"><span>Paper]</span></a></p>
+</blockquote>
+</li>
+</ul>
+</li>
+<li><strong><span>Recurrent-based Graph Filters</span></strong>
+<ul>
+<li><span>Based on the Gated Recurrent Units (GRU).</span></li>
+<li><span>Examples:</span>
+<ul>
+<li><span>Gated Graph Neural Networks (GGNN)</span></li>
+</ul>
+<blockquote>
+<p><strong><span>Gated Graph Sequence Neural Networks</span></strong><br>
+<em><span>Yujia Li, Daniel Tarlow, Marc Brockschmidt, Richard Zemel</span></em><br>
+<span>ICLR, 2016.</span><br>
+<span>[</span><a href="https://arxiv.org/abs/1511.05493" target="_blank" rel="noopener"><span>Paper]</span></a></p>
+</blockquote>
+</li>
+</ul>
+</li>
+</ul><h4 id="Graph-Pooling" data-id="Graph-Pooling"><a class="anchor hidden-xs" href="#Graph-Pooling" title="Graph-Pooling"><span class="octicon octicon-link"></span></a><span>Graph Pooling</span></h4><ul>
+<li><strong><span>Flat Graph Pooling</span></strong>
+<ul>
+<li><span>Max-pooling and Average-pooling</span></li>
+<li><span>Max-pooling and Average-pooling following a fully-connected layer</span></li>
+<li><span>BiLSTM aggregation</span></li>
+</ul>
+</li>
+<li><strong><span>Hierarchical Graph Pooling</span></strong>
+<ul>
+<li><span>Subsampling the most important nodes</span>
+<ul>
+<li><span>Graph Pooling Layer (gPool)</span></li>
+</ul>
+<blockquote>
+<p><strong><span>Learning Graph Pooling and Hybrid Convolutional Operations for Text Representations</span></strong><br>
+<em><span>Hongyang Gao, Yongjun Chen, Shuiwang Ji</span></em><br>
+<span>WWW, 2019.</span><br>
+<span>[</span><a href="https://arxiv.org/abs/1901.06965" target="_blank" rel="noopener"><span>Paper]</span></a></p>
+</blockquote>
+</li>
+<li><span>Combines nodes to form supernodes</span>
+<ul>
+<li><span>DiffPool</span></li>
+</ul>
+<blockquote>
+<p><strong><span>Hierarchical Graph Representation Learning with Differentiable Pooling</span></strong><br>
+<em><span>Rex Ying, Jiaxuan You, Christopher Morris, Xiang Ren, William L. Hamilton, Jure Leskovec</span></em><br>
+<span>NIPS, 2018.</span><br>
+<span>[</span><a href="https://arxiv.org/abs/1806.08804" target="_blank" rel="noopener"><span>Paper]</span></a></p>
+</blockquote>
+<ul>
+<li><span>EigenPooing</span></li>
+</ul>
+<blockquote>
+<p><strong><span>Graph Convolutional Networks with EigenPooling</span></strong><br>
+<em><span>Yao Ma, Suhang Wang, Charu C. Aggarwal, Jiliang Tang</span></em><br>
+<span>SIGKDD, 2019.</span><br>
+<span>[</span><a href="https://arxiv.org/abs/1904.13107" target="_blank" rel="noopener"><span>Paper]</span></a></p>
+</blockquote>
+</li>
+</ul>
+</li>
+</ul><h4 id="Further-Reading1" data-id="Further-Reading"><a class="anchor hidden-xs" href="#Further-Reading1" title="Further-Reading1"><span class="octicon octicon-link"></span></a><span>Further Reading</span></h4><blockquote>
+<p><strong><span>Graph Neural Networks: A Review of Methods and Applications</span></strong><br>
+<em><span>Jie Zhou, Ganqu Cui, Zhengyan Zhang, Cheng Yang, Zhiyuan Liu, Maosong Sun</span></em><br>
+<span>AI Open, 2020.</span><br>
+<span>[</span><a href="https://www.sciencedirect.com/science/article/pii/S2666651021000012" target="_blank" rel="noopener"><span>Paper]</span></a></p>
+</blockquote><blockquote>
+<p><strong><span>A Comprehensive Survey on Graph Neural Networks</span></strong><br>
+<em><span>Zonghan Wu, Shirui Pan, Fengwen Chen, Guodong Long, Chengqi Zhang, Philip S. Yu</span></em><br>
+<span>IEEE TNN, 2020.</span><br>
+<span>[</span><a href="https://arxiv.org/abs/1901.00596" target="_blank" rel="noopener"><span>Paper]</span></a></p>
+</blockquote><h2 id="Graph-Construction-for-NLP" data-id="Graph-Construction-for-NLP"><a class="anchor hidden-xs" href="#Graph-Construction-for-NLP" title="Graph-Construction-for-NLP"><span class="octicon octicon-link"></span></a><span>Graph Construction for NLP</span></h2><h2 id="Graph-Representation-Learning-for-NLP" data-id="Graph-Representation-Learning-for-NLP"><a class="anchor hidden-xs" href="#Graph-Representation-Learning-for-NLP" title="Graph-Representation-Learning-for-NLP"><span class="octicon octicon-link"></span></a><span>Graph Representation Learning for NLP</span></h2><h2 id="GNN-Based-Encoder-Decode-Models" data-id="GNN-Based-Encoder-Decode-Models"><a class="anchor hidden-xs" href="#GNN-Based-Encoder-Decode-Models" title="GNN-Based-Encoder-Decode-Models"><span class="octicon octicon-link"></span></a><span>GNN-Based Encoder-Decode Models</span></h2><h2 id="Resources" data-id="Resources"><a class="anchor hidden-xs" href="#Resources" title="Resources"><span class="octicon octicon-link"></span></a><span>Resources</span></h2><h3 id="Graph-for-NLP" data-id="Graph-for-NLP"><a class="anchor hidden-xs" href="#Graph-for-NLP" title="Graph-for-NLP"><span class="octicon octicon-link"></span></a><span>Graph for NLP</span></h3><h4 id="Books" data-id="Books"><a class="anchor hidden-xs" href="#Books" title="Books"><span class="octicon octicon-link"></span></a><span>Books</span></h4><blockquote>
+<p><strong><span>Graph-based Natural Language Processing and Information Retrieval</span></strong><br>
+<em><span>Rada Mihalcea, Dragomir Radev</span></em><br>
+<span>Cambridge University Press, 2011.</span><br>
+<span>[</span><a href="https://www.google.com/books/edition/Graph_based_Natural_Language_Processing/kByP4X9c5AQC" target="_blank" rel="noopener"><span>Book]</span></a></p>
+</blockquote><h4 id="Surveys" data-id="Surveys"><a class="anchor hidden-xs" href="#Surveys" title="Surveys"><span class="octicon octicon-link"></span></a><span>Surveys</span></h4><blockquote>
+<p><strong><span>Graph Neural Networks for Natural Language Processing: A Survey</span></strong><br>
+<em><span>Lingfei Wu, Yu Chen, Kai Shen, Xiaojie Guo, Hanning Gao, Shucheng Li, Jian Pei, Bo Long</span></em><br>
+<span>Arxiv, 2021.</span><br>
+<span>[</span><a href="https://arxiv.org/abs/2106.06090" target="_blank" rel="noopener"><span>Paper]</span></a></p>
+</blockquote><h4 id="Papers" data-id="Papers"><a class="anchor hidden-xs" href="#Papers" title="Papers"><span class="octicon octicon-link"></span></a><span>Papers</span></h4><blockquote>
+<p><strong><span>Jointly Multiple Events Extraction via Attention-based Graph Information Aggregation</span></strong><br>
+<em><span>Xiao Liu, Zhunchen Luo, Heyan Huang</span></em><br>
+<span>EMNLP, 2018.</span><br>
+<span>[</span><a href="https://arxiv.org/abs/1809.09078" target="_blank" rel="noopener"><span>Paper]</span></a></p>
+</blockquote><blockquote>
+<p><strong><span>Learning Graphical State Transitions</span></strong><br>
+<em><span>Daniel D. Johnson</span></em><br>
+<span>ICLR, 2017.</span><br>
+<span>[</span><a href="https://openreview.net/forum?id=HJ0NvFzxl" target="_blank" rel="noopener"><span>Paper]</span></a><span> [</span><a href="https://github.com/danieldjohnson/gated-graph-transformer-network" target="_blank" rel="noopener"><span>Code]</span></a></p>
+</blockquote><h4 id="Tools" data-id="Tools"><a class="anchor hidden-xs" href="#Tools" title="Tools"><span class="octicon octicon-link"></span></a><span>Tools</span></h4><h3 id="Graph-Neural-Networks1" data-id="Graph-Neural-Networks"><a class="anchor hidden-xs" href="#Graph-Neural-Networks1" title="Graph-Neural-Networks1"><span class="octicon octicon-link"></span></a><span>Graph Neural Networks</span></h3><h4 id="Books1" data-id="Books"><a class="anchor hidden-xs" href="#Books1" title="Books1"><span class="octicon octicon-link"></span></a><span>Books</span></h4><blockquote>
+<p><strong><span>Introduction to Graph Neural Networks. Synthesis Lectures on Artificial Intelligence and Machine Learning</span></strong><br>
+<em><span>hiyuan Liu, Jie Zhou</span></em><br>
+<span>Morgan &amp; Claypool Publishers, 2020.</span><br>
+<span>[</span><a href="https://www.morganclaypool.com/doi/10.2200/S00980ED1V01Y202001AIM045" target="_blank" rel="noopener"><span>Book]</span></a></p>
+</blockquote><h4 id="Surveys1" data-id="Surveys"><a class="anchor hidden-xs" href="#Surveys1" title="Surveys1"><span class="octicon octicon-link"></span></a><span>Surveys</span></h4><blockquote>
+<p><strong><span>Foundations and modelling of dynamic networks using Dynamic Graph Neural Networks: A survey</span></strong><br>
+<em><span>Joakim Skarding, Bogdan Gabrys, Katarzyna Musial</span></em><br>
+<span>IEEE Access, 2021.</span><br>
+<span>[</span><a href="https://arxiv.org/abs/2005.07496" target="_blank" rel="noopener"><span>Paper]</span></a></p>
+</blockquote><blockquote>
+<p><strong><span>Graph Neural Networks: A Review of Methods and Applications</span></strong><br>
+<em><span>Jie Zhou, Ganqu Cui, Zhengyan Zhang, Cheng Yang, Zhiyuan Liu, Maosong Sun</span></em><br>
+<span>AI Open, 2020.</span><br>
+<span>[</span><a href="https://www.sciencedirect.com/science/article/pii/S2666651021000012" target="_blank" rel="noopener"><span>Paper]</span></a></p>
+</blockquote><blockquote>
+<p><strong><span>A Comprehensive Survey on Graph Neural Networks</span></strong><br>
+<em><span>Zonghan Wu, Shirui Pan, Fengwen Chen, Guodong Long, Chengqi Zhang, Philip S. Yu</span></em><br>
+<span>IEEE TNN, 2020.</span><br>
+<span>[</span><a href="https://arxiv.org/abs/1901.00596" target="_blank" rel="noopener"><span>Paper]</span></a></p>
+</blockquote><blockquote>
+<p><strong><span>Deep Learning on Graphs: A Survey</span></strong><br>
+<em><span>Ziwei Zhang, Peng Cui, Wenwu Zhu</span></em><br>
+<span>IEEE TKDE, 2020.</span><br>
+<span>[</span><a href="https://arxiv.org/abs/1812.04202" target="_blank" rel="noopener"><span>Paper]</span></a></p>
+</blockquote><blockquote>
+<p><strong><span>Benchmarking Graph Neural Networks</span></strong><br>
+<em><span>Vijay Prakash Dwivedi, Chaitanya K. Joshi, Thomas Laurent, Yoshua Bengio, Xavier Bresson</span></em><br>
+<span>Arxiv, 2020.</span><br>
+<span>[</span><a href="https://arxiv.org/abs/2003.00982" target="_blank" rel="noopener"><span>Paper]</span></a><span> [</span><a href="https://github.com/graphdeeplearning/benchmarking-gnns" target="_blank" rel="noopener"><span>Code]</span></a></p>
+</blockquote><blockquote>
+<p><strong><span>Bridging the Gap between Spatial and Spectral Domains: A Survey on Graph Neural Networks</span></strong><br>
+<em><span>Zhiqian Chen, Fanglan Chen, Lei Zhang, Taoran Ji, Kaiqun Fu, Liang Zhao, Feng Chen, Chang-Tien Lu</span></em><br>
+<span>Arxiv, 2020.</span><br>
+<span>[</span><a href="https://arxiv.org/abs/2002.11867" target="_blank" rel="noopener"><span>Paper]</span></a></p>
+</blockquote><blockquote>
+<p><strong><span>Relational Inductive Biases, Deep Learning, and Graph Networks</span></strong><br>
+<em><span>Peter W. Battaglia, Jessica B. Hamrick, Victor Bapst, Alvaro Sanchez-Gonzalez, Vinicius Zambaldi, Mateusz Malinowski, Andrea Tacchetti, David Raposo, Adam Santoro, Ryan Faulkner, Caglar Gulcehre, Francis Song, Andrew Ballard, Justin Gilmer, George Dahl, Ashish Vaswani, Kelsey Allen, Charles Nash, Victoria Langston, Chris Dyer, Nicolas Heess, Daan Wierstra, Pushmeet Kohli, Matt Botvinick, Oriol Vinyals, Yujia Li, Razvan Pascanu</span></em><br>
+<span>Arxiv, 2018.</span><br>
+<span>[</span><a href="https://arxiv.org/abs/1806.01261" target="_blank" rel="noopener"><span>Paper]</span></a></p>
+</blockquote><blockquote>
+<p><strong><span>Geometric Deep Learning: Going beyond Euclidean Data</span></strong><br>
+<em><span>Bronstein, Michael M and Bruna, Joan and LeCun, Yann and Szlam, Arthur and Vandergheynst, Pierre</span></em><br>
+<span>IEEE SPM, 2017.</span><br>
+<span>[</span><a href="https://arxiv.org/abs/1611.08097" target="_blank" rel="noopener"><span>Paper]</span></a></p>
+</blockquote><h4 id="Papers1" data-id="Papers"><a class="anchor hidden-xs" href="#Papers1" title="Papers1"><span class="octicon octicon-link"></span></a><span>Papers</span></h4><blockquote>
+<p><strong><span>Recurrent Relational Networks</span></strong><br>
+<em><span>Rasmus Berg Palm, Ulrich Paquet, Ole Winther</span></em><br>
+<span>NeurIPS, 2019.</span><br>
+<span>[</span><a href="https://arxiv.org/abs/1711.08028" target="_blank" rel="noopener"><span>Paper]</span></a></p>
+</blockquote><blockquote>
+<p><strong><span>Graph Transformer Networks</span></strong><br>
+<em><span>Seongjun Yun, Minbyul Jeong, Raehyun Kim, Jaewoo Kang, Hyunwoo Kim</span></em><br>
+<span>NeurIPS, 2019.</span><br>
+<span>[</span><a href="https://arxiv.org/abs/1911.06455" target="_blank" rel="noopener"><span>Paper]</span></a></p>
+</blockquote><blockquote>
+<p><strong><span>DyRep: Representation Learning over Dynamic Graphs</span></strong><br>
+<em><span>Rakshit Trivedi, Mehrdad Farajtabar, Prasenjeet Biswal, Hongyuan Zha</span></em><br>
+<span>ICLR, 2019.</span><br>
+<span>[</span><a href="https://openreview.net/forum?id=HyePrhR5KX" target="_blank" rel="noopener"><span>Paper]</span></a></p>
+</blockquote><blockquote>
+<p><strong><span>Dynamic Hypergraph Neural Networks</span></strong><br>
+<em><span>Jianwen Jiang, Yuxuan Wei, Yifan Feng, Jingxuan Cao, Yue Gao</span></em><br>
+<span>IJCAI, 2019.</span><br>
+<span>[</span><a href="https://www.ijcai.org/proceedings/2019/366" target="_blank" rel="noopener"><span>Paper]</span></a></p>
+</blockquote><blockquote>
+<p><strong><span>Semi-Supervised Classification with Graph Convolutional Networks</span></strong><br>
+<em><span>Thomas N. Kipf, Max Welling</span></em><br>
+<span>ICLR, 2017.</span><br>
+<span>[</span><a href="https://arxiv.org/abs/1609.02907" target="_blank" rel="noopener"><span>Paper]</span></a></p>
+</blockquote><h4 id="Tools1" data-id="Tools"><a class="anchor hidden-xs" href="#Tools1" title="Tools1"><span class="octicon octicon-link"></span></a><span>Tools</span></h4><blockquote>
+<p><strong><span>Fast Graph Representation Learning with PyTorch Geometric</span></strong><br>
+<em><span>Matthias Fey, Jan Eric Lenssen</span></em><br>
+<span>ICLR, 2019.</span><br>
+<span>[</span><a href="https://arxiv.org/abs/1911.06455" target="_blank" rel="noopener"><span>Paper]</span></a><span> [</span><a href="https://github.com/rusty1s/pytorch_geometric" target="_blank" rel="noopener"><span>Code]</span></a></p>
+</blockquote></div>
+    <div class="ui-toc dropup unselectable hidden-print" style="display:none;">
+        <div class="pull-right dropdown">
+            <a id="tocLabel" class="ui-toc-label btn btn-default" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false" title="Table of content">
+                <i class="fa fa-bars"></i>
+            </a>
+            <ul id="ui-toc" class="ui-toc-dropdown dropdown-menu" aria-labelledby="tocLabel">
+                <div class="toc"><ul class="nav">
+<li class=""><a href="#Graph-for-Natural-Langauge-Processing" title="Graph for Natural Langauge Processing">Graph for Natural Langauge Processing</a><ul class="nav">
+<li class=""><a href="#Overview" title="Overview">Overview</a><ul class="nav">
+<li><a href="#Representing-Language-Processing" title="Representing Language Processing">Representing Language Processing</a></li>
+<li><a href="#Classic-Graph-Based-Methods-for-NLP" title="Classic Graph-Based Methods for NLP">Classic Graph-Based Methods for NLP</a></li>
+<li class=""><a href="#Graph-Neural-Networks" title="Graph Neural Networks">Graph Neural Networks</a></li>
+</ul>
+</li>
+<li><a href="#Graph-Construction-for-NLP" title="Graph Construction for NLP">Graph Construction for NLP</a></li>
+<li><a href="#Graph-Representation-Learning-for-NLP" title="Graph Representation Learning for NLP">Graph Representation Learning for NLP</a></li>
+<li><a href="#GNN-Based-Encoder-Decode-Models" title="GNN-Based Encoder-Decode Models">GNN-Based Encoder-Decode Models</a></li>
+<li><a href="#Resources" title="Resources">Resources</a><ul class="nav">
+<li><a href="#Graph-for-NLP" title="Graph for NLP">Graph for NLP</a></li>
+<li><a href="#Graph-Neural-Networks1" title="Graph Neural Networks">Graph Neural Networks</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div><div class="toc-menu"><a class="expand-toggle" href="#">Expand all</a><a class="back-to-top" href="#">Back to top</a><a class="go-to-bottom" href="#">Go to bottom</a></div>
+            </ul>
+        </div>
+    </div>
+    <div id="ui-toc-affix" class="ui-affix-toc ui-toc-dropdown unselectable hidden-print" data-spy="affix" style="top:17px;display:none;" null null>
+        <div class="toc"><ul class="nav">
+<li class=""><a href="#Graph-for-Natural-Langauge-Processing" title="Graph for Natural Langauge Processing">Graph for Natural Langauge Processing</a><ul class="nav">
+<li class=""><a href="#Overview" title="Overview">Overview</a><ul class="nav">
+<li><a href="#Representing-Language-Processing" title="Representing Language Processing">Representing Language Processing</a></li>
+<li><a href="#Classic-Graph-Based-Methods-for-NLP" title="Classic Graph-Based Methods for NLP">Classic Graph-Based Methods for NLP</a></li>
+<li class=""><a href="#Graph-Neural-Networks" title="Graph Neural Networks">Graph Neural Networks</a></li>
+</ul>
+</li>
+<li><a href="#Graph-Construction-for-NLP" title="Graph Construction for NLP">Graph Construction for NLP</a></li>
+<li><a href="#Graph-Representation-Learning-for-NLP" title="Graph Representation Learning for NLP">Graph Representation Learning for NLP</a></li>
+<li><a href="#GNN-Based-Encoder-Decode-Models" title="GNN-Based Encoder-Decode Models">GNN-Based Encoder-Decode Models</a></li>
+<li><a href="#Resources" title="Resources">Resources</a><ul class="nav">
+<li><a href="#Graph-for-NLP" title="Graph for NLP">Graph for NLP</a></li>
+<li><a href="#Graph-Neural-Networks1" title="Graph Neural Networks">Graph Neural Networks</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div><div class="toc-menu"><a class="expand-toggle" href="#">Expand all</a><a class="back-to-top" href="#">Back to top</a><a class="go-to-bottom" href="#">Go to bottom</a></div>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha256-U5ZEeKfGNOja007MMD3YBI0A3OSZOQbeG6z2f2Y0hu8=" crossorigin="anonymous" defer></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gist-embed/2.6.0/gist-embed.min.js" integrity="sha256-KyF2D6xPIJUW5sUDSs93vWyZm+1RzIpKCexxElmxl8g=" crossorigin="anonymous" defer></script>
+    <script>
+        var markdown = $(".markdown-body");
+        //smooth all hash trigger scrolling
+        function smoothHashScroll() {
+            var hashElements = $("a[href^='#']").toArray();
+            for (var i = 0; i < hashElements.length; i++) {
+                var element = hashElements[i];
+                var $element = $(element);
+                var hash = element.hash;
+                if (hash) {
+                    $element.on('click', function (e) {
+                        // store hash
+                        var hash = this.hash;
+                        if ($(hash).length <= 0) return;
+                        // prevent default anchor click behavior
+                        e.preventDefault();
+                        // animate
+                        $('body, html').stop(true, true).animate({
+                            scrollTop: $(hash).offset().top
+                        }, 100, "linear", function () {
+                            // when done, add hash to url
+                            // (default click behaviour)
+                            window.location.hash = hash;
+                        });
+                    });
+                }
+            }
+        }
+
+        smoothHashScroll();
+        var toc = $('.ui-toc');
+        var tocAffix = $('.ui-affix-toc');
+        var tocDropdown = $('.ui-toc-dropdown');
+        //toc
+        tocDropdown.click(function (e) {
+            e.stopPropagation();
+        });
+
+        var enoughForAffixToc = true;
+
+        function generateScrollspy() {
+            $(document.body).scrollspy({
+                target: ''
+            });
+            $(document.body).scrollspy('refresh');
+            if (enoughForAffixToc) {
+                toc.hide();
+                tocAffix.show();
+            } else {
+                tocAffix.hide();
+                toc.show();
+            }
+            $(document.body).scroll();
+        }
+
+        function windowResize() {
+            //toc right
+            var paddingRight = parseFloat(markdown.css('padding-right'));
+            var right = ($(window).width() - (markdown.offset().left + markdown.outerWidth() - paddingRight));
+            toc.css('right', right + 'px');
+            //affix toc left
+            var newbool;
+            var rightMargin = (markdown.parent().outerWidth() - markdown.outerWidth()) / 2;
+            //for ipad or wider device
+            if (rightMargin >= 133) {
+                newbool = true;
+                var affixLeftMargin = (tocAffix.outerWidth() - tocAffix.width()) / 2;
+                var left = markdown.offset().left + markdown.outerWidth() - affixLeftMargin;
+                tocAffix.css('left', left + 'px');
+            } else {
+                newbool = false;
+            }
+            if (newbool != enoughForAffixToc) {
+                enoughForAffixToc = newbool;
+                generateScrollspy();
+            }
+        }
+        $(window).resize(function () {
+            windowResize();
+        });
+        $(document).ready(function () {
+            windowResize();
+            generateScrollspy();
+        });
+
+        //remove hash
+        function removeHash() {
+            window.location.hash = '';
+        }
+
+        var backtotop = $('.back-to-top');
+        var gotobottom = $('.go-to-bottom');
+
+        backtotop.click(function (e) {
+            e.preventDefault();
+            e.stopPropagation();
+            if (scrollToTop)
+                scrollToTop();
+            removeHash();
+        });
+        gotobottom.click(function (e) {
+            e.preventDefault();
+            e.stopPropagation();
+            if (scrollToBottom)
+                scrollToBottom();
+            removeHash();
+        });
+
+        var toggle = $('.expand-toggle');
+        var tocExpand = false;
+
+        checkExpandToggle();
+        toggle.click(function (e) {
+            e.preventDefault();
+            e.stopPropagation();
+            tocExpand = !tocExpand;
+            checkExpandToggle();
+        })
+
+        function checkExpandToggle () {
+            var toc = $('.ui-toc-dropdown .toc');
+            var toggle = $('.expand-toggle');
+            if (!tocExpand) {
+                toc.removeClass('expand');
+                toggle.text('Expand all');
+            } else {
+                toc.addClass('expand');
+                toggle.text('Collapse all');
+            }
+        }
+
+        function scrollToTop() {
+            $('body, html').stop(true, true).animate({
+                scrollTop: 0
+            }, 100, "linear");
+        }
+
+        function scrollToBottom() {
+            $('body, html').stop(true, true).animate({
+                scrollTop: $(document.body)[0].scrollHeight
+            }, 100, "linear");
+        }
+    </script>
+</body>
+
+</html>
